@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">Financial Rate</string>
+
+    <string name="action_settings">Info</string>
+    <string-array name="views_array">
+        <item>Foreign Currency</item>
+        <item>Converter</item>
+        <item>About App</item>
+    </string-array>
+    <string name="menu">Мenu</string>
+
+
+    <string name="action_search">Search (in resources)</string>
+
+    <string-array name="screen_array">
+        <item>Tab 1</item>
+        <item>Tab 2</item>
+        <item>Tab 3</item>
+    </string-array>
+    <!-- ************************************************************     -->
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+
+    <string name="open_menu">Open</string>
+    <string name="close_menu">Close</string>
+
+    <string name="screen_one">Экран №1</string>
+    <string name="screen_two">Экран №2</string>
+    <string name="screen_three">Экран №3</string>
+
+
+      <string name="info_check_connection">Check Internet connection .\n
+Update data</string>
+
+     <string name="warming">Warning !</string>
+
+    <string name="danger_info">The price on the foreign exchange market can drastically change throughout the day depending on news background!
+Quotations in this application are approximate and do not reflect the exchange price in real-time!The result of coverter is approximate! Large numbers are rounded!</string>
+
+
+<string name="danger_price">
+        Currency quotes are approximate!
+    </string>
+
+
+    <string name="delay">Information may be displayed with a delay,the time data is indicated.</string>
+
+    <string name="exit">Exit</string>
+    <string name="attention">Attention!</string>
+
+
+    <!-- ************************************************************     -->
+
+    <string name="wait">RECEIVING DATA...</string>
+    <string name="again">Try again to get data</string>
+    <string name="follow_the_link">Follow the link</string>
+
+    <string name="Failure_of_the_connection">Not Connection ! </string>
+
+    <string name="what_do">What to do next ?</string>
+
+    <string name="count">count</string>
+
+    <string name="reload">Refreshed</string>
+
+
+    <string name="data_info">Data received with :</string>
+    <string name="data_link">https://finance.yahoo.com/</string>
+    <string name="data_info_link">Data received with :\n https://finance.yahoo.com/</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sory">Sorry Bitcoin quotes is temporarily not available</string>
+</resources>

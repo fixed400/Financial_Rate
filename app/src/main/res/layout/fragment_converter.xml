@@ -1,0 +1,107 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  android:id="@+id/llColors"
+    android:background="#6a706b"
+    tools:context="com.my_research_app.grd.finnacetiks_4_4.view.сurrency_сonverter.ConverterFragment">
+
+<!--
+ yello-green
+ android:background="#b1c120"
+ -->
+
+
+
+
+    <RelativeLayout
+        android:layout_width="369dp"
+        android:layout_height="400dp"
+        android:layout_gravity="center">
+
+
+
+        <EditText
+            android:layout_width="109dp"
+            android:layout_marginLeft="60dp"
+            android:inputType="number"
+            android:ems="10"
+            android:text="1"
+            android:textColor="#1a6113"
+            android:textStyle="bold"
+            android:maxLength="9"
+            android:background="#e1e1e1"
+            android:textColorHint="#42df30"
+            android:selectAllOnFocus="true"
+            android:id="@+id/editText"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:layout_marginTop="224dp" />
+
+        <TextView
+            android:text="0.00"
+            android:layout_marginTop="495dp"
+            android:layout_marginLeft="115dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:background="@drawable/border_rectangle"
+            android:id="@+id/textView5" />
+
+        <TextView
+            android:text="0.00"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="223dp"
+
+            android:layout_height="wrap_content"
+            android:padding="8px"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:maxLength="64"
+            android:background="@drawable/border_rectangle"
+            android:id="@+id/textView6"
+            android:layout_width="109dp" />
+
+        <!-- android:src="@drawable/convert_complete_128_148" -->
+        <ImageButton
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="164dp"
+            android:layout_marginLeft="180dp"
+
+            android:id="@+id/imageButton"
+            android:background="@drawable/convert_complete_128_160" />
+
+        <Button
+            android:text="Select"
+            android:layout_width="84dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="155dp"
+
+            android:id="@+id/btn2" />
+
+        <Button
+            android:text="@string/count"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="135dp"
+            android:layout_marginTop="285dp"
+            android:id="@+id/buttonCount" />
+
+        <Button
+            android:text="Select"
+            android:layout_width="82dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="155dp"
+            android:layout_marginLeft="70dp"
+            android:id="@+id/btn1" />
+
+
+
+    </RelativeLayout>
+
+
+</FrameLayout>

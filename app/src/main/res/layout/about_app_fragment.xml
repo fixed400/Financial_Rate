@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+
+    android:background="@drawable/bg_bw"
+    android:layout_height="match_parent" >
+
+
+
+
+<!--
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/person_photo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/emma"
+        />
+    -->
+
+    <TextView
+        android:id="@+id/tickerRate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:text="@string/danger_info"
+
+
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:gravity="center_horizontal"
+        android:text="@string/data_info_link"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:textColor="#dedcd9"
+        android:textColorLink="@drawable/linkcolor"
+        android:textSize="14dp"
+        android:id="@+id/textLink" />
+
+
+</RelativeLayout>

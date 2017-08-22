@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "134114098268",
+    "firebase_url": "https://financialrate.firebaseio.com",
+    "project_id": "financialrate",
+    "storage_bucket": "financialrate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134114098268:android:72293a82f53d507d",
+        "android_client_info": {
+          "package_name": "com.netcommunicationapp.grd.financial_rate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134114098268-mugkjvvos4h7uk9lq2ok2f5di524t3h2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.netcommunicationapp.grd.financial_rate",
+            "certificate_hash": "769ffc4eaabe139bee0290e45fba949ef2f874e0"
+          }
+        },
+        {
+          "client_id": "134114098268-r23o2gocmsj4ae4a3dg2gabq19nkffsb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1d_RfNzxvpWIKJ-oAH04k7yVKSE_Jt6I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134114098268-r23o2gocmsj4ae4a3dg2gabq19nkffsb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

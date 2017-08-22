@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">Обменный Курс</string>
+
+    <string name="action_settings">Инфо</string>
+    <string-array name="views_array">
+        <item>Валютные пары</item>
+        <item>Конвертор</item>
+        <item>О программе</item>
+    </string-array>
+    <string name="menu">Меню</string>
+
+
+    <string name="action_search">Поиск (in resources)</string>
+
+    <string-array name="screen_array">
+        <item>Вкладка 1</item>
+        <item>Вкладка 2</item>
+        <item>Вкладка 3</item>
+    </string-array>
+ <!-- ************************************************************     -->
+    <string name="drawer_open">Открыть navigation drawer</string>
+    <string name="drawer_close">Закрыть navigation drawer</string>
+
+    <string name="open_menu">Open</string>
+    <string name="close_menu">Close</string>
+
+    <string name="screen_one">Экран №1</string>
+    <string name="screen_two">Экран №2</string>
+    <string name="screen_three">Экран №3</string>
+
+    <string name="info_check_connection">Проверте подключение к интернет.\n
+Oбновите данные"</string>
+
+    <string name="warming">Внимание !</string>
+
+       <string name="danger_info">
+        Цена на валютном рынке может резко менятся в течении дня в зависимости от новостного фона!
+        Котировки валют в данном приложении являются приблизительными и не отображают биржевую цену в реальном времени!
+           Результат конвертора является приблизительный! Большие числа округляются!
+    </string>
+
+     <string name="danger_price">
+        Котировки валют  являются приблизительными!
+    </string>
+
+    <string name="exit">Выход</string>
+    К сожалению котировки доллара временно не доступна
+
+    <string name="delay">Информация может быть отображаться с запозданием,время данных указывается.</string>
+    <string name="attention">Внимание!</string>
+
+    <!-- ************************************************************     -->
+
+    <string name="wait">ПОЛУЧЕНИЕ ДАННЫХ...</string>
+    <string name="again">Попробовать еще</string>
+    <string name="follow_the_link">Перейти по ссылке</string>
+    <string name="Failure_of_the_connection">Нету соединения ! </string>
+    <string name="what_do">Что делать дальше ?</string>
+
+
+
+    <string name="reload">Обновлено</string>
+
+
+
+
+    <string name="count">посчитать</string>
+
+    <string name="data_info">Данные получены с :</string>
+    <string name="data_info_link">Данные получены с :\n https://finance.yahoo.com/</string>
+    <string name="data_link">https://finance.yahoo.com/</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="sory">Sorry Bitcoin quotes is temporarily not available</string>
+
+</resources>
