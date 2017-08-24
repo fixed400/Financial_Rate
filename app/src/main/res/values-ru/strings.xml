@@ -76,4 +76,28 @@ Oбновите данные"</string>
 
     <string name="sory">Sorry Bitcoin quotes is temporarily not available</string>
 
+
+    <!-- ***********************PREFERENCE******************** -->
+    <string name="checkbox1_title">Темный фон меню</string>
+    <string name="checkbox1_summary">Summary of CheckBox 1</string>
+    <string name="checkbox2_title">Темный фон меню</string>
+    <string name="checkbox2_summary">Set on/off</string>
+    <string name="checkbox3_title">Темный фон меню</string>
+    <string name="checkbox3_summary">Summary of CheckBox 3</string>
+    <string name="edittext1_title">EditText 1</string>
+    <string name="edittext1_summary">Summary of EditText 1</string>
+    <string name="list1_title">Выбор анимации</string>
+    <string name="list1_summary">Выбрать эффект из списка</string>
+    <string-array name="entries">
+        <item>increase</item>
+        <item>protrusion</item>
+        <item>descent</item>
+    </string-array>
+    <string-array name="entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+
 </resources>

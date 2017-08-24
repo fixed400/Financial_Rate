@@ -3,8 +3,11 @@ package com.netcommunicationapp.grd.financial_rate;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
+import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -53,6 +56,13 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
 
     static boolean showAnimation = false;
 
+    public static boolean allowAnimation;
+    static SharedPreferences mySharedPreferences;
+    public static String listChooserItem;
+    public static int animId;
+
+    private static Context context;
+
     private static FragmentManager fragmentManagerPass;
 
     @Override
@@ -67,6 +77,9 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
          прописав в элементе <activity> параметр android:screenOrientation:
          */
         setContentView(R.layout.activity_main_navigation_drawer);
+
+
+        context=this;
 
         myTitle =  getTitle();
         myDrawerTitle = getResources().getString(R.string.menu);
@@ -212,17 +225,93 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // toggle nav drawer on selecting action bar app icon/title
-        if (myDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
+      //  if (myDrawerToggle.onOptionsItemSelected(item)) {
+      //      return true;
+      //  }
+
+        ///-----------------------------
+        /*
+        int id = item.getItemId();
+
+        Fragment fragment = null;
+        android.app.FragmentManager fragmentManager = getFragmentManager();
+
+        if (id == R.id.list_item_attachment) {
+
+            //fragment = new EFragment();
+            //fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
             DialogFragment infoDialog = new InfoDialogFragment();
             infoDialog.show(getFragmentManager(), "InfoApp");
             return true;
 
+        }
 
+        else if (id == R.id.my_item2) {
+
+            fragment = new SettingsFragment();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+        }
+        */
+        //--------------------------------------------
+           // DialogFragment infoDialog = new InfoDialogFragment();
+           // infoDialog.show(getFragmentManager(), "InfoApp");
+            //return true;
+
+        //-----------------------------------
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+
+            DialogFragment infoDialog = new InfoDialogFragment();
+            infoDialog.show(getFragmentManager(), "InfoApp");
+
+            return true;
+        }
+        else if (id == R.id.my_item2) {
+
+            Fragment fragment = null;
+            android.app.FragmentManager fragmentManager = getFragmentManager();
+
+            fragment = new SettingsFragment();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+
+        }
+
+        return super.onOptionsItemSelected(item);
+
+    }// --end
+
+    //===================================================
+    private static void loadPref(){
+        mySharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+
+        //boolean getBoolean(String key, boolean defValue);
+        boolean my_checkbox_preference = mySharedPreferences.getBoolean("chb_animation", false);
+        allowAnimation=my_checkbox_preference;
+    }
+
+    public static void loadSettingsAnimation() {
+
+        loadPref();
+        String listValue = mySharedPreferences.getString("list_chooser", "не выбрано");
+
+        listChooserItem =listValue;
+
+        switch (listValue){
+            case "1" :
+                animId =  R.anim.scaling_increase;
+                break;
+            case "2":
+                animId =  R.anim.scaling_protrusion;
+                break;
+            case "3":
+                animId =  R.anim.scaling_descent;
+                break;
+        }
 
     }
+
 
     /**
      * Called when invalidateOptionsMenu() is triggered
