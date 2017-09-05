@@ -165,6 +165,75 @@ public final  class PreViewerActivity extends AppCompatActivity {
         return res;
     } //--End loadJSONOfWeb();
 
+    //-----------------------------------------------------
+    private Boolean getDataURL1Test(String hostData){
+
+        Boolean res=false;
+
+        HttpURLConnection urlConnection = null;
+        BufferedReader reader = null;
+        String resultJson = "";
+
+        try {
+
+            URL url = new URL(hostData);
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestMethod("GET");
+            urlConnection.connect();
+            //...............................................................
+            /*
+            InputStream inputStream = urlConnection.getInputStream();
+            readyLoadData=true;
+            // accessUrlConnect2=true;
+            StringBuffer buffer = new StringBuffer();
+            reader = new BufferedReader(new InputStreamReader(inputStream));
+            //...............................................................
+            String line;
+            while ((line = reader.readLine()) != null) {
+                buffer.append(line);
+                //resultJson = line;
+                Log.d(LOG_TAG,"%%%%%%%%###=line is  = "+line);
+
+            }
+
+            resultJson = buffer.toString();
+            */
+            resultJson = CommonResources.testJsonData;
+
+            res = true;
+            //---------------save in file (private_app_Storage)----------------------
+
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
+                    openFileOutput(FILENAME, MODE_PRIVATE)));
+
+            bw.write(resultJson.toString());
+            bw.flush();
+            bw.close();
+            //---------------------------------------------------
+
+
+        } catch (MalformedURLException e) {
+            Log.e(LOG_TAG, "MalformedURLException: " + e.getMessage());
+        } catch (ProtocolException e) {
+            Log.e(LOG_TAG, "ProtocolException: " + e.getMessage());
+
+            res = false;
+            //    showNotice();
+        } catch (IOException e) {
+            Log.e(LOG_TAG, "IOException: " + e.getMessage());
+            Log.d(LOG_TAG,"Данные не получены Exception loadJSONOfWeb() "+e.getMessage());
+
+            res = false;
+
+        } catch (Exception e) {
+            Log.e(LOG_TAG, "Exception: " + e.getMessage());
+            res = false;
+
+        }
+
+        return res;
+    } //--End loadJSONOfWeb();
+
     public void tryAgainToGetConnection() {
 
         //Toast.makeText(this,"Not Connection !  \n TryAgain ",Toast.LENGTH_LONG).show();
@@ -217,7 +286,8 @@ public final  class PreViewerActivity extends AppCompatActivity {
             Boolean answer =null;
             try {
 
-                answer=getDataURL1(CommonResources.hostData);
+                //answer=getDataURL1(CommonResources.hostData);
+                answer=getDataURL1Test(CommonResources.testHost);
                 //answer=LoadData.getDataURL2(CommonResources.hostData);
                 Thread.sleep(inspectionTime);
 

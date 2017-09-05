@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Обменный Курс</string>
 
-    <string name="action_settings">Инфо</string>
+    <string name="action_info">Информация</string>
+    <string name="action_settings">Настройки</string>
+
+
     <string-array name="views_array">
         <item>Валютные пары</item>
         <item>Конвертор</item>

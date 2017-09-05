@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Financial Rate</string>
 
-    <string name="action_settings">Info</string>
+    <string name="action_info">Info</string>
+    <string name="action_settings">Settings</string>
+
     <string-array name="views_array">
         <item>Foreign Currency</item>
         <item>Converter</item>
