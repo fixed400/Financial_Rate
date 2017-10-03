@@ -27,10 +27,6 @@ import com.netcommunicationapp.grd.financial_rate.common.ConverterData;
 
 import java.math.BigDecimal;
 
-
-
-
-//public class ConverterFragment extends Fragment implements PairListCurrencyDialogFactor.onEventListenerFactor,PairListCurrencyDialogRatio.onEventListenerRatio {
 public class ConverterFragment extends Fragment {
 
    private static final String LOG_TAG = "myLogs";
@@ -48,15 +44,8 @@ public class ConverterFragment extends Fragment {
 
    private static Context context;
 
-   // Mathematics Multiplication
-   // Умноже́ние — одна из основных бинарных математических операций (арифметических действий)
-    // двух аргументов (множимого и множителя), результатом которой является новое число (произведение).
-
-   // factor and multiplier(ratio)  - множимого и множителя
-
-
     public ConverterFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
@@ -210,7 +199,6 @@ public class ConverterFragment extends Fragment {
 
     ///---------------------------valueTicker--------------------------------
     //  получение данных с dialogFragmnet
-
     public static void valueTickerFactor(String selectedValueOne) {
 
         try {
@@ -219,7 +207,6 @@ public class ConverterFragment extends Fragment {
 
             txtMultiplier.setText("0.00");
         }catch (NumberFormatException exception){
-            // getResources().getString(R.string.warming) - for not static
             Toast.makeText(context,"Пустое значение !",Toast.LENGTH_SHORT).show();
 
         }
@@ -236,14 +223,10 @@ public class ConverterFragment extends Fragment {
     }
 
     //===============================mathematics======================
-    // счетчик Значение
-
     private static void accountValueOf() {
 
             try {
                 double outcome = 0.0;
-                // !!! Потеря точности из Double во Float
-                // https://habrahabr.ru/post/201066/
                 if (ConverterData.valueFactor == ConverterData.valueRatio) {
                     outcome = getInputValue() * (1 / 1);
                 } else{
@@ -270,7 +253,6 @@ public class ConverterFragment extends Fragment {
             }  catch (Exception e) {
                 e.printStackTrace();
             }
-
 
     }
 

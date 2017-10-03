@@ -21,12 +21,6 @@ import com.netcommunicationapp.grd.financial_rate.R;
  * A simple {@link Fragment} subclass.
  */
 
-/*
-Сам фрагмент SettingsFragment наследуется от класса PreferenceFragment.
-В его методе onCreate() вызывается метод addPreferencesFromResource(),
- в который передается id ресурса xml с настройками (в данном
- случае ранее определенный ресурс R.xml.settings).
- */
 public class SettingsFragment extends PreferenceFragment {
 
 

@@ -1,13 +1,16 @@
 package com.netcommunicationapp.grd.financial_rate.view.adapter;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.netcommunicationapp.grd.financial_rate.R;
 import com.netcommunicationapp.grd.financial_rate.common.CommonResources;
@@ -34,10 +37,7 @@ public class MyRecyclerViewAdapterShares extends
             R.drawable.oil, //4
 
             R.drawable.oil, //5
-
-
     };
-
 
     String[] itemName = new String[5];
     String[] itemRate = new String[5];
@@ -60,12 +60,10 @@ public class MyRecyclerViewAdapterShares extends
         itemsRateValue = new ArrayList<String>();
         itemsMarket = new ArrayList<String>();
 
-
         this.itemName = CommonResources.arrayNameTickersShares;
         this.itemRate =CommonResources.arrayRateTickersShares;
         this.itemDate =CommonResources.arraySymbolTickersShares;
         this.itemTime =CommonResources.arrrayMarketStockTickersShares;
-
 
     }
 
@@ -80,41 +78,12 @@ public class MyRecyclerViewAdapterShares extends
     @Override
     public void onBindViewHolder(ItemHolder itemHolder, int i) {
 
-
         itemHolder.setItemName(itemName[i]);
         itemHolder.setItemValue(itemRate[i]);
         itemHolder.setTextItemPercent(itemDate[i]);
         itemHolder.setTextItemStock(itemTime[i]);
         itemHolder.imageView.setImageResource(resImg[i]);
 
-
-        /*
-        / loading album cover using Glide library
-        Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
-
-        holder.overflow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopupMenu(holder.overflow);
-            }
-        });
-         */
-
-        /*
-        // http://androidlift.info/2015/12/24/android-recyclerview-cardview-example/
-        itemHolder.setClickListener(new ItemClickListener() {
-            @Override
-            public void onClick(View view, int position, boolean isLongClick) {
-                if (isLongClick) {
-                    Toast.makeText(context, "#" + position + " - " + alName.get(position) + " (Long click)", Toast.LENGTH_SHORT).show();
-                    context.startActivity(new Intent(context, MainActivity.class));
-                } else {
-                    Toast.makeText(context, "#" + position + " - " + alName.get(position), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        */
     }
 
     @Override
@@ -128,8 +97,6 @@ public class MyRecyclerViewAdapterShares extends
 
         itemsRateValue.add(location, iName);
         itemsMarket.add(location, iName);
-
-
 
         notifyItemInserted(location);
     }

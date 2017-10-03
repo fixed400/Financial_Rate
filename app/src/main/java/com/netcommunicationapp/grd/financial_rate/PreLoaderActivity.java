@@ -49,9 +49,7 @@ public final  class PreLoaderActivity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_pre_viewer);
 
-       // context = getApplicationContext(); // NOT WORK
-        context = PreLoaderActivity.this; // WORK
-       // context = this; // NOT WORK
+        context = PreLoaderActivity.this;
 
         progressBarCircle = (ProgressBar) findViewById(R.id.pbc);
         progressBarCircle.setVisibility(View.VISIBLE);
@@ -68,9 +66,7 @@ public final  class PreLoaderActivity extends AppCompatActivity {
         super.onStart();
         Log.d(LOG_TAG, "onStart()");
         new WaiterAsync().execute();
-        //------TRIAL -- not loader data
-       // Intent i = new Intent(PreLoaderActivity.this, MainNavigationDrawerActivity.class);
-       // startActivity(i);
+
     }
     @Override
     protected void onPause() {
@@ -156,7 +152,7 @@ public final  class PreLoaderActivity extends AppCompatActivity {
             if(result){
                 Log.d(LOG_TAG, "WaiterAsync: onPostExecute() Boolean result)" +result);
                 progressBarCircle.setVisibility(View.GONE);
-                //close app
+
                 if(CommonResources.endMainActitvity==false) {
                     checkNetCommunication();
                 }
@@ -166,11 +162,10 @@ public final  class PreLoaderActivity extends AppCompatActivity {
                 }
             }else{
                 Log.d(LOG_TAG, "Данные не получены ");
-               // if (textView != null ||  CommonResources.visibleOnScreen == true){
                 if (textView != null &&  CommonResources.visibleOnScreen == true){
                     textView.setText(R.string.Failure_of_the_connection);
                     DialogFragment alertDialogFragmentRepeat = new AlertDialogFragment();
-                    alertDialogFragmentRepeat.show(getFragmentManager(), "myAlertFRAGMENT");// java.lang.IllegalStateException: Can not perform this action after onSaveInstanceState
+                    alertDialogFragmentRepeat.show(getFragmentManager(), "myAlertFRAGMENT");
                 }
                 inspectionTime=8000;
             }
@@ -182,76 +177,6 @@ public final  class PreLoaderActivity extends AppCompatActivity {
             Log.d(LOG_TAG, "Cancel");
         }
     }
-
-//========================test==========================
-
-    private Boolean getDataURLTest(String hostData){
-
-        Boolean res=false;
-
-        HttpURLConnection urlConnection = null;
-        BufferedReader reader = null;
-        String resultJson = "";
-
-        try {
-
-            URL url = new URL(hostData);
-            urlConnection = (HttpURLConnection) url.openConnection();
-            urlConnection.setRequestMethod("GET");
-            urlConnection.connect();
-            //...............................................................
-           // /*
-            InputStream inputStream = urlConnection.getInputStream();
-            readyLoadData=true;
-            // accessUrlConnect2=true;
-            StringBuffer buffer = new StringBuffer();
-            reader = new BufferedReader(new InputStreamReader(inputStream));
-            //...............................................................
-            String line;
-            while ((line = reader.readLine()) != null) {
-                buffer.append(line);
-                //resultJson = line;
-                Log.d(LOG_TAG,"%%%%%%%%###=line is  = "+line);
-            }
-            resultJson = buffer.toString();
-            //*/
-           // resultJson = CommonResources.testJsonData;
-
-            res = true;
-            //---------------save in file (private_app_Storage)----------------------
-
-            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(
-                    openFileOutput(FILENAME, MODE_PRIVATE)));
-
-            bw.write(resultJson.toString());
-            bw.flush();
-            bw.close();
-            //---------------------------------------------------
-
-
-        } catch (MalformedURLException e) {
-            Log.e(LOG_TAG, "MalformedURLException: " + e.getMessage());
-        } catch (ProtocolException e) {
-            Log.e(LOG_TAG, "ProtocolException: " + e.getMessage());
-
-            res = false;
-
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "IOException: " + e.getMessage());
-            Log.d(LOG_TAG,"Данные не получены Exception loadJSONOfWeb() "+e.getMessage());
-
-            res = false;
-
-        } catch (Exception e) {
-            Log.e(LOG_TAG, "Exception: " + e.getMessage());
-            res = false;
-
-        }
-
-        return res;
-    }
-//=====================================================
-
 
     @Override
     protected void onDestroy() {

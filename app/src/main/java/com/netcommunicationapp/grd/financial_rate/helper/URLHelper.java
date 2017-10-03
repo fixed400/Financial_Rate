@@ -37,8 +37,6 @@ public class URLHelper extends ContextWrapper{
         this.context = base;
     }
 
-    //-----------------------------------------------------
-
     //===================================1 Currency====================================
     public Boolean getDataURL1(String hostData){
 

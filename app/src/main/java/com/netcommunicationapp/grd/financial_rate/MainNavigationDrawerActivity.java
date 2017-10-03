@@ -51,14 +51,7 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// Но указанный способ не совсем желателен.
-        // BUT BETTER
-        // android:screenOrientation="portrait"
-        /*
-
-         Лучше установить нужную ориентацию через манифест,
-         прописав в элементе <activity> параметр android:screenOrientation:
-         */
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main_navigation_drawer);
 
         myTitle =  getTitle();
@@ -67,16 +60,10 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
         // load slide menu items
         viewsNames = getResources().getStringArray(R.array.nav_list_array); //list names in menu drawer
         myDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout); // display screen
-        myDrawerList = (ListView) findViewById(R.id.left_drawer);  //шторка(curtain)
+        myDrawerList = (ListView) findViewById(R.id.left_drawer);  //curtain
 
-        /*
-        задаем список пунктов меню для Navigation Drawer с помощью Array-адаптера.
-         В качестве обработчика клика по пунктам меню используется класс DrawerItemClickListener.
-         */
         myDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, viewsNames));
-
-        // enabling action bar app icon and behaving it as toggle button
         android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
@@ -84,25 +71,16 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
         {
             public void onDrawerClosed(View view) {
                 getSupportActionBar().setTitle(myTitle);
-                // calling onPrepareOptionsMenu() to show action bar icons
                 invalidateOptionsMenu();
             }
 
             public void onDrawerOpened(View drawerView) {
                 getSupportActionBar().setTitle(myDrawerTitle);
-                // calling onPrepareOptionsMenu() to hide action bar icons
                 invalidateOptionsMenu();
             }
         };
-        myDrawerLayout.setDrawerListener(myDrawerToggle);//Use addDrawerListener() instead.
-/*
-При первой загрузке приложения  задается номер отображаемого фрагмента (нумерация с 0),
-т.к. пользователь еще ничего не успел выбрать:
- */
+        myDrawerLayout.setDrawerListener(myDrawerToggle);
         if (savedInstanceState == null) {
-            // on first time display view for first nav item
-            // Метод displayView(int position) получает в параметрах id нужного view,
-            // а далее блок switch определяет, каким именно фрагментом нужно заполнить FrameLayout.
             displayView(0);
         }
 
@@ -111,7 +89,6 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
         Toast.makeText(this, getResources().getString(R.string.danger_price), Toast.LENGTH_SHORT).show();
     }//----END onCrate()
 
-    //=====================================================================
     public void Value1Event(String inputPair) {
         selectedCurrency1 = inputPair;
         Log.d("Nav.Drawer",selectedCurrency1);
@@ -122,7 +99,7 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
         selectedCurrency2 = inputPair2;
     }
 
-    //=====================================================================
+
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(
@@ -148,27 +125,16 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
                 break;
 
             case 3:
-               // fragment = new AboutAppFragment();
-                // Сommodities
                 fragment = new CommoditiesFragment();
-              //   Intent intent = new Intent(this, SharesScrollingActivity.class);
-              //   startActivity(intent);
                 restraint =false;
                 break;
-           //     */
             case 4:
-                // SharesScrollingActivity
-                // Intent intent = new Intent(this, SharesScrollingActivity.class);
-                // startActivity(intent);
                 fragment = new SharesQuoteFragment();
                 restraint =false;
 
                 break;
-            // /*
             default:
                 break;
-
-
         }
 
         if (fragment != null) {
@@ -188,7 +154,6 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
 
     public Fragment sendToFragmentBundle(Fragment frg)
     {
-        //----------------------------------------
         frg = new ConverterFragment();
         Bundle bundle=new Bundle();
         bundle.putString("name", selectedCurrency1);
@@ -205,8 +170,6 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
-        //! For toggle nav drawer on selecting action bar app icon/title -- DONT DELETE THIS COMMENT!
         if (myDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
@@ -231,12 +194,8 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
         }
     }
 
-    /**
-     * Called when invalidateOptionsMenu() is triggered
-     */
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        // if navigation drawer is opened, hide the action items
         boolean drawerOpen = myDrawerLayout.isDrawerOpen(myDrawerList);
         menu.findItem(R.id.action_settings).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
@@ -248,22 +207,15 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
         getSupportActionBar().setTitle(myTitle);
     }
 
-    /**
-     * When using the ActionBarDrawerToggle, you must call it during
-     * onPostCreate() and onConfigurationChanged()...
-     * //// При спользовании ActionBarDrawerToggle, нужно вызывать методы onPostCreate() и onConfigurationChanged():
-     */
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-        // Sync the toggle state after onRestoreInstanceState has occurred.//  // Синхронизиет состояние переключателя после действия onRestoreInstanceState
         myDrawerToggle.syncState();
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-        // Pass any configuration change to the drawer toggls
         myDrawerToggle.onConfigurationChanged(newConfig);
     }
 
@@ -280,7 +232,6 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
         }else{
             finish();
         }
-
     }
 
     @Override

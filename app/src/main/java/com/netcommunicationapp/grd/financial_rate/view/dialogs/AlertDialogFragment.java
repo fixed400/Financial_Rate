@@ -19,18 +19,15 @@ public class AlertDialogFragment extends DialogFragment {
 
     final String LOG_TAG = "AlertDialogFrag";
 
-   // @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(getResources().getString(R.string.what_do))
-               // .setIcon(R.drawable.ic_launcher_cat)
                 .setTitle(getResources().getString(R.string.Failure_of_the_connection))
                 .setPositiveButton(getResources().getString(R.string.again), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                       // ((MainActivity) getActivity()).checkConnect();
-                      //  ((MainActivity) getActivity()).runTaskUi();
+
                          ((PreLoaderActivity) getActivity()).tryAgainToGetConnection();
                     }
                 })

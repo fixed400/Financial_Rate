@@ -57,8 +57,7 @@ public class ConverterData {
         initConverterData();
     }
 
-
-     public  void initConverterData() {
+    public  void initConverterData() {
 
          mapRateData.put("USD",  usd);
          mapRateData.put("EUR", eur);  //2

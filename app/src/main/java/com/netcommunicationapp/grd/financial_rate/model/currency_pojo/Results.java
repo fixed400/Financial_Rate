@@ -8,15 +8,6 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-/*
-
-@Expose
-//Expose - разоблачать
- Аннотация Expose. Она работает только в паре с методом GsonBuilder.excludeFieldsWithoutExposeAnnotation() ,
- который исключает из обработки все поля, не имеющие аннотации Expose.
-  Но, выходит, чтобы исключить одно поле, нам нужно добавить аннотации ко всем остальным полям.
- */
-
 public class Results {
 
     @SerializedName("rate")

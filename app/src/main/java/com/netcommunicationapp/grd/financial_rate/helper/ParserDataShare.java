@@ -81,8 +81,6 @@ public class ParserDataShare {
                         CommonResources.arrrayMarketStockTickersShares[4] = res.getStockExchange();
                         break;
 
-
-
                 }//-- End switch
 
 

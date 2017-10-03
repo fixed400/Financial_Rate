@@ -11,7 +11,7 @@ public class SplashActivity extends Activity {
 
     public static String LOG_TAG = "SplashActivity_log";
 
-    // Splash screen timer
+
     private static int SPLASH_TIME_OUT = 900;
 
     @Override
@@ -38,8 +38,6 @@ public class SplashActivity extends Activity {
         }, SPLASH_TIME_OUT);
     }
 
-
-    //================================================================================================
     @Override
     protected void onPause() {
         super.onPause();

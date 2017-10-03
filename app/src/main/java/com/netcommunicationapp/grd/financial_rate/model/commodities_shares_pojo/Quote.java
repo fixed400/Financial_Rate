@@ -6,17 +6,9 @@ package com.netcommunicationapp.grd.financial_rate.model.commodities_shares_pojo
 
 
 import com.google.gson.annotations.SerializedName;
-/*
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.apache.commons.lang.builder.ToStringBuilder;
-*/
 
     public class Quote {
 
-        //@SerializedName("symbol_one") // fake
-        //@Expose
-        //private String symbolOne;
         @SerializedName("AverageDailyVolume")
         private Object averageDailyVolume;
         @SerializedName("Change")
@@ -43,16 +35,6 @@ import org.apache.commons.lang.builder.ToStringBuilder;
         private String volume;
         @SerializedName("StockExchange")
         private String stockExchange;
-
-        /*  //"symbol_one"
-        public String getSymbolOne() {
-            return symbolOne;
-        }
-
-        public void setSymbolOne(String symbolOne) {
-            this.symbolOne = symbolOne;
-        }
-        */
 
         public Object getAverageDailyVolume() {
             return averageDailyVolume;
@@ -157,29 +139,5 @@ import org.apache.commons.lang.builder.ToStringBuilder;
         public void setStockExchange(String stockExchange) {
             this.stockExchange = stockExchange;
         }
-
-        /*
-        @Override
-        public String toString() {
-            return new ToStringBuilder(this).append("symbolOne", symbolOne).append("averageDailyVolume", averageDailyVolume).append("change", change).append("daysLow", daysLow).append("daysHigh", daysHigh).append("yearLow", yearLow).append("yearHigh", yearHigh).append("marketCapitalization", marketCapitalization).append("lastTradePriceOnly", lastTradePriceOnly).append("daysRange", daysRange).append("name", name).append("symbol", symbol).append("volume", volume).append("stockExchange", stockExchange).toString();
-        }
-
-        @Override
-        public int hashCode() {
-            return new HashCodeBuilder().append(marketCapitalization).append(daysHigh).append(symbol).append(change).append(symbolOne).append(yearLow).append(yearHigh).append(daysRange).append(averageDailyVolume).append(name).append(volume).append(daysLow).append(stockExchange).append(lastTradePriceOnly).toHashCode();
-        }
-
-        @Override
-        public boolean equals(Object other) {
-            if (other == this) {
-                return true;
-            }
-            if ((other instanceof Quote) == false) {
-                return false;
-            }
-            Quote rhs = ((Quote) other);
-            return new EqualsBuilder().append(marketCapitalization, rhs.marketCapitalization).append(daysHigh, rhs.daysHigh).append(symbol, rhs.symbol).append(change, rhs.change).append(symbolOne, rhs.symbolOne).append(yearLow, rhs.yearLow).append(yearHigh, rhs.yearHigh).append(daysRange, rhs.daysRange).append(averageDailyVolume, rhs.averageDailyVolume).append(name, rhs.name).append(volume, rhs.volume).append(daysLow, rhs.daysLow).append(stockExchange, rhs.stockExchange).append(lastTradePriceOnly, rhs.lastTradePriceOnly).isEquals();
-        }
-          */
 
     }

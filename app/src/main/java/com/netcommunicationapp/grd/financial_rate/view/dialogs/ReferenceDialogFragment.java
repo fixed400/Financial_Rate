@@ -27,21 +27,14 @@ public class ReferenceDialogFragment extends DialogFragment {
 
     final String LOG_TAG = "ReferenceDialogFrag";
 
-    int pos0 ;
-   private static int num;
-   //String reference ="https://ru.investing.com/currencies/eur-usd";
-   String reference ;
-
-    //===============================1===============================
-    private static int pos;
+    private static int num;
+    String reference ;
 
     public static ReferenceDialogFragment newInstance(int temp){
         ReferenceDialogFragment f = new ReferenceDialogFragment();
         num = temp;
         return f;
     };
-   //===============================2 (gooogle)===============================
-
 
     /**
      * Create a new instance of MyDialogFragment, providing "num"
@@ -109,21 +102,10 @@ public class ReferenceDialogFragment extends DialogFragment {
 
     }
 
-
-   //==============================================================
-
-
-
-
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-        //--------------------------------------------------------------
-
-        //--------------------------------------------------------------
-
 
         final SpannableString link = new SpannableString(reference);
         Linkify.addLinks(link, Linkify.ALL);
@@ -145,28 +127,6 @@ public class ReferenceDialogFragment extends DialogFragment {
 
         return builder.create();
     }
-
-///-------------------------------------------------------------------------------------------------
-    /*
-    DialogInterface.OnClickListener itemClickListener = new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            switch (which){
-                case 0:
-                   // prepareToSendCoordsViaSMS(bodyText);
-                    dialog.dismiss();
-                    break;
-                case 1:
-                   // prepareToSendCoordsViaEmail(bodyText);
-                    dialog.dismiss();
-                    break;
-                default:
-                    break;
-            }
-        }
-    };
-    */
-    ///---------------------------------------------------------------------------------------------
 
     public void onDismiss(DialogInterface dialog) {
         super.onDismiss(dialog);

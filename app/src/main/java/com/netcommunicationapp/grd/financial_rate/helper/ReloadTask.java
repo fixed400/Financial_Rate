@@ -25,8 +25,7 @@ public  class ReloadTask extends AsyncTask<Void, Void, String> {
     protected String doInBackground(Void... params) {
 
         Log.d(LOG_TAG, " doInBackground  -------ReloadTask---------------------- ");
-       new URLHelper(context).getDataURLUpdate(hostDataCurrency);
-       // new URLHelper(context).getDataURL1(CommonResources.hostDataCurrency);
+        new URLHelper(context).getDataURLUpdate(hostDataCurrency);
 
         String  localJson = new FileHelper(context).readJSONOfFile(CommonResources.FILENAME);
         new ParserDataCurrency().doParceGSON(localJson);

@@ -4,17 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal" >
 
-    <!--
-    <ImageView
-        android:id="@+id/imageViewIcon"
-        android:layout_width="50dp"
-        android:layout_height="50dp" />
 
-    <TextView
-        android:id="@+id/textViewName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-        -->
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
@@ -36,17 +26,7 @@
                 android:layout_width="60dip"
                 android:layout_height="60dip" />
         </LinearLayout>
-        <!-- Rightend Arrow -->
-        <!--
-        <ImageView
-            android:id="@+id/imageView1"
-            android:contentDescription="@string/app_name"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/bitcoin_btc_usd" />
-            -->
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +38,7 @@
             android:textStyle="bold"
             android:typeface="sans"
             android:id="@+id/tickerRate" />
-        <!-- City-->
+
         <TextView
             android:id="@+id/tickerSymbol"
             android:layout_width="wrap_content"
@@ -75,7 +55,7 @@
             android:textSize="18dip"
             android:textStyle="bold"
             android:typeface="sans" />
-        <!-- Weather Information-->
+
         <TextView
             android:id="@+id/timeData"
             android:layout_width="wrap_content"

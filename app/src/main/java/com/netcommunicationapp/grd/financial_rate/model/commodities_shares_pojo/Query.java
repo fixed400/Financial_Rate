@@ -5,11 +5,6 @@ package com.netcommunicationapp.grd.financial_rate.model.commodities_shares_pojo
  */
 
 import com.google.gson.annotations.SerializedName;
-/*
-import org.apache.commons.lang.builder.EqualsBuilder;
-import org.apache.commons.lang.builder.HashCodeBuilder;
-import org.apache.commons.lang.builder.ToStringBuilder;
-*/
 
 public class Query {
 
@@ -54,28 +49,6 @@ public class Query {
         this.results = results;
     }
 
-    /*
-    @Override
-    public String toString() {
-        return new ToStringBuilder(this).append("count", count).append("created", created).append("lang", lang).append("results", results).toString();
-    }
 
-    @Override
-    public int hashCode() {
-        return new HashCodeBuilder().append(results).append(count).append(created).append(lang).toHashCode();
-    }
-
-    @Override
-    public boolean equals(Object other) {
-        if (other == this) {
-            return true;
-        }
-        if ((other instanceof Query) == false) {
-            return false;
-        }
-        Query rhs = ((Query) other);
-        return new EqualsBuilder().append(results, rhs.results).append(count, rhs.count).append(created, rhs.created).append(lang, rhs.lang).isEquals();
-    }
-    */
 
 }

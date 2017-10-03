@@ -26,14 +26,7 @@ import java.util.List;
 public class MyRecyclerViewAdapterCommodities extends
         RecyclerView.Adapter<MyRecyclerViewAdapterCommodities.ItemHolder>{
 
-    //ArrayList<Integer> alImage;
-    //private List<ItemObject> itemList;
-
-    // private List itemList;
     private List <Integer>  itemList = new ArrayList<Integer>();
-    // private List <Integer> itemList = new ArrayList<>();
-    // private List<Drawable> itemList = new ArrayList<Drawable>();
-
     Integer[] resImg = {
 
             R.drawable.oil, //1
@@ -50,14 +43,10 @@ public class MyRecyclerViewAdapterCommodities extends
             //  R.drawable.oil, //10
     };
 
-
-
     String[] itemName = new String[9];
     String[] itemRate = new String[9];
     String[] itemDate = new String[9];
     String[] itemTime = new String[9];
-
-
 
     private List<String> itemsName;
     private List<Integer> itemsValue;
@@ -81,20 +70,6 @@ public class MyRecyclerViewAdapterCommodities extends
         this.itemDate =CommonResources.arrayDateTickersCommodities;
         this.itemTime =CommonResources.arrrayTimeTickersCommodities;
 
-        //populate - list
-        /*
-        itemList.add(R.drawable.oil);
-        itemList.add(R.drawable.oil);
-        itemList.add(R.drawable.gold);
-        itemList.add(R.drawable.oil);
-        itemList.add(R.drawable.gold);
-        itemList.add(R.drawable.shares);
-        itemList.add(R.drawable.oil);
-        itemList.add(R.drawable.gold);
-        itemList.add(R.drawable.shares);
-        */
-
-
     }
 
     @Override
@@ -108,60 +83,14 @@ public class MyRecyclerViewAdapterCommodities extends
     //// Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(ItemHolder itemHolder, int i) {
-        // itemHolder.setItemName(itemsName.get(i));
+
         itemHolder.setItemName(itemName[i]);
-        // itemHolder.textItemName.setText(itemName[i]);
-        //int value = itemsValue.get(i);
-        //int value = Integer.parseInt(itemRate[i]);
-        // itemHolder.setItemValue(String.valueOf(value));
         itemHolder.setItemValue(itemRate[i]);
-        //+2
         itemHolder.setTextItemPercent(itemDate[i]);
         itemHolder.setTextItemStock(itemTime[i]);
-        // Drawable drawable = context.getResources().getDrawable(value);
-        // Drawable drawable = resImg[value];
-        //holderFindViewByIds.imageView.setImageResource(resImg[position]);
-        //itemHolder.setImageView(drawable);
-        //itemHolder.setImageResource(resImg[value]);
-        //itemHolder.imageView.setImageResource(resImg[value]);
-        itemHolder.imageView.setImageResource(resImg[i]); // USE
 
+        itemHolder.imageView.setImageResource(resImg[i]);
 
-        /*
-        / loading album cover using Glide library
-        Glide.with(mContext).load(album.getThumbnail()).into(holder.thumbnail);
-
-        holder.overflow.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showPopupMenu(holder.overflow);
-            }
-        });
-         */
-
-        //ListItem list =  items.get(position);
-        //holder.imageView.setImageBitmap(list.getImage());
-        // itemHolder.setImageView();
-        //imageView.setImageResource(peolpleDataSet.get(listPosition).getImage());
-
-        //itemHolder.imageView.setImageResource(alImage.get(i));
-//        itemHolder.imageView.setImageResource(resImg[value]);
-
-        /*
-        // http://androidlift.info/2015/12/24/android-recyclerview-cardview-example/
-        itemHolder.setClickListener(new ItemClickListener() {
-            @Override
-            public void onClick(View view, int position, boolean isLongClick) {
-                if (isLongClick) {
-                    Toast.makeText(context, "#" + position + " - " + alName.get(position) + " (Long click)", Toast.LENGTH_SHORT).show();
-                    context.startActivity(new Intent(context, MainActivity.class));
-                } else {
-                    Toast.makeText(context, "#" + position + " - " + alName.get(position), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        */
     }
 
     @Override
@@ -175,8 +104,6 @@ public class MyRecyclerViewAdapterCommodities extends
 
         itemsRateValue.add(location, iName);
         itemsMarket.add(location, iName);
-
-
 
         notifyItemInserted(location);
     }

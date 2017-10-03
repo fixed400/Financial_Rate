@@ -22,19 +22,14 @@ import com.netcommunicationapp.grd.financial_rate.R;
 public class InfoDialogFragment extends DialogFragment {
     final String LOG_TAG = "InfoDialogFrag";
 
-
-    // @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        // Linkify the message
         final SpannableString link = new SpannableString("https://finance.yahoo.com/");
         Linkify.addLinks(link, Linkify.ALL);
 
         builder.setTitle(getResources().getString(R.string.data_info))
-               // .setMessage(R.string.data_link)
-                // .setMessage(Html.fromHtml("<a href=\"https://finance.yahoo.com/">Check this link out</a>"))
                  .setMessage(link)
 
                 .setNeutralButton("Ok", new DialogInterface.OnClickListener() {

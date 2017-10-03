@@ -21,9 +21,8 @@ public class FileHelper extends ContextWrapper{
 
     private static String LOG_TAG = "FileHelper_log";
 
-    private Context context = getApplicationContext();
-
-
+    private Context context;
+    
     public FileHelper(Context base) {
         super(base);
         context = base;

@@ -8,7 +8,6 @@ android:key: устанавливает ключ настройки в SharedPre
 android:title: название настройки для пользователя
 android:summary: краткое описание по данной настройке для пользователя
     -->
-
     <CheckBoxPreference
         android:key="check_box"
         android:summary="@string/checkbox_summary"

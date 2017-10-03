@@ -19,11 +19,11 @@ public class ParserDataCurrency {
 
     public static String LOG_TAG = "my_log_ParceData";
 
-    //Constructor
+
     public ParserDataCurrency(){
 
     }
-    //Constructor 2
+
     public ParserDataCurrency(String jsonStr){
 
         doParceGSON(jsonStr);

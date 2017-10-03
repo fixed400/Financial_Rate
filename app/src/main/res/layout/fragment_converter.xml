@@ -67,7 +67,6 @@
             android:id="@+id/multiplier_txt"
             android:layout_width="109dp" />
 
-        <!-- android:src="@drawable/convert_complete_128_148" -->
         <ImageButton
             android:layout_width="24dp"
             android:layout_height="24dp"

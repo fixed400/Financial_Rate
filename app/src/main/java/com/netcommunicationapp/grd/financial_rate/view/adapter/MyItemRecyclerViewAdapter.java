@@ -37,12 +37,10 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     };
 
-
     public MyItemRecyclerViewAdapter(List<MarketItem> items) {
         mValues = items;
 
     }
-
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -54,37 +52,8 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
 
-        holder.imageView.setImageResource(resImg[position]); // USE
-        /*
+        holder.imageView.setImageResource(resImg[position]);
         holder.mItem = mValues.get(position);
-        holder.mContentView.setText(mValues.get(position).id);
-        holder.mContentView1.setText(mValues.get(position).content);
-        holder.mContentView2.setText(mValues.get(position).content2);
-        holder.mContentView3.setText(mValues.get(position).content3);
-        holder.mContentView4.setText(mValues.get(position).content4);
-        */
-
-
-        holder.mItem = mValues.get(position);
-
-
-         /*
-        // java.lang.IndexOutOfBoundsException: Invalid index 0, size is 0  - NEED LOAD DATA! >> GO TO PreLoaderActivity
-        holder.mContentView1.setText(CommonResources.listRateTickersCommodities.get(position));
-        holder.mContentView2.setText(CommonResources.listChangeTickersCommodities.get(position));
-        holder.mContentView3.setText(CommonResources.listarrayDateTickersCommodities.get(position));
-        holder.mContentView4.setText(CommonResources.listTimeTickersCommodities.get(position));
-        */
-
-        /*
-        // java.lang.IndexOutOfBoundsException: Invalid index 1, size is 0 - NEED LOAD DATA! >> GO TO PreLoaderActivity
-        holder.mContentView1.setText(CommonResources.listRateTickersCommodities.get(1));
-        holder.mContentView2.setText(CommonResources.listChangeTickersCommodities.get(1));
-        holder.mContentView3.setText(CommonResources.listarrayDateTickersCommodities.get(1));
-        holder.mContentView4.setText(CommonResources.listTimeTickersCommodities.get(1));
-        */
-
-
 
         holder.mContentView.setText(mValues.get(position).content);
         holder.mContentView1.setText(mValues.get(position).content1);

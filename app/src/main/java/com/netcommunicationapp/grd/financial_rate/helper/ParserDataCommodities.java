@@ -70,7 +70,7 @@ public class ParserDataCommodities {
                     case "CL=F":
                         CommonResources.arrayNameTickersCommodities[1] = res.getName();
                         CommonResources.arrayRateTickersCommodities[1] = res.getLastTradePriceOnly();
-                        CommonResources.arrayChangeTickersCommodities1[1] = res.getChange();
+                        CommonResources.arrayChangeTickersCommodities[1] = res.getChange();
                         CommonResources.arrayDateTickersCommodities[1] = res.getSymbol();
                         CommonResources.arrrayTimeTickersCommodities[1] = res.getStockExchange();
 
@@ -84,7 +84,7 @@ public class ParserDataCommodities {
                     case "NG=F":
                         CommonResources.arrayNameTickersCommodities[2] = res.getName();
                         CommonResources.arrayRateTickersCommodities[2] = res.getLastTradePriceOnly();
-                        CommonResources.arrayChangeTickersCommodities1[2] = res.getChange();
+                        CommonResources.arrayChangeTickersCommodities[2] = res.getChange();
                         CommonResources.arrayDateTickersCommodities[2] = res.getSymbol();
                         CommonResources.arrrayTimeTickersCommodities[2] = res.getStockExchange();
 
@@ -99,7 +99,7 @@ public class ParserDataCommodities {
                     case "GC=F":
                         CommonResources.arrayNameTickersCommodities[3] = res.getName();
                         CommonResources.arrayRateTickersCommodities[3] = res.getLastTradePriceOnly();
-                        CommonResources.arrayChangeTickersCommodities1[3] = res.getChange();
+                        CommonResources.arrayChangeTickersCommodities[3] = res.getChange();
                         CommonResources.arrayDateTickersCommodities[3] = res.getSymbol();
                         CommonResources.arrrayTimeTickersCommodities[3] = res.getStockExchange();
 
@@ -114,7 +114,7 @@ public class ParserDataCommodities {
                     case "SI=F":
                         CommonResources.arrayNameTickersCommodities[4] = res.getName();
                         CommonResources.arrayRateTickersCommodities[4] = res.getLastTradePriceOnly();
-                        CommonResources.arrayChangeTickersCommodities1[4] = res.getChange();
+                        CommonResources.arrayChangeTickersCommodities[4] = res.getChange();
                         CommonResources.arrayDateTickersCommodities[4] = res.getSymbol();
                         CommonResources.arrrayTimeTickersCommodities[4] = res.getStockExchange();
 
@@ -128,7 +128,7 @@ public class ParserDataCommodities {
                     case "PL=F":
                         CommonResources.arrayNameTickersCommodities[5] = res.getName();
                         CommonResources.arrayRateTickersCommodities[5] = res.getLastTradePriceOnly();
-                        CommonResources.arrayChangeTickersCommodities1[5] = res.getChange();
+                        CommonResources.arrayChangeTickersCommodities[5] = res.getChange();
                         CommonResources.arrayDateTickersCommodities[5] = res.getSymbol();
                         CommonResources.arrrayTimeTickersCommodities[5] = res.getStockExchange();
 
@@ -142,7 +142,7 @@ public class ParserDataCommodities {
                     case "ZW=F":
                         CommonResources.arrayNameTickersCommodities[6] = res.getName();
                         CommonResources.arrayRateTickersCommodities[6] = res.getLastTradePriceOnly();
-                        CommonResources.arrayChangeTickersCommodities1[6] = res.getChange();
+                        CommonResources.arrayChangeTickersCommodities[6] = res.getChange();
                         CommonResources.arrayDateTickersCommodities[6] = res.getSymbol();
                         CommonResources.arrrayTimeTickersCommodities[6] = res.getStockExchange();
 
@@ -157,7 +157,7 @@ public class ParserDataCommodities {
                     case "KC=F":
                         CommonResources.arrayNameTickersCommodities[7] = res.getName();
                         CommonResources.arrayRateTickersCommodities[7] = res.getLastTradePriceOnly();
-                        CommonResources.arrayChangeTickersCommodities1[7] = res.getChange();
+                        CommonResources.arrayChangeTickersCommodities[7] = res.getChange();
                         CommonResources.arrayDateTickersCommodities[7] = res.getSymbol();
                         CommonResources.arrrayTimeTickersCommodities[7] = res.getStockExchange();
 
@@ -172,7 +172,7 @@ public class ParserDataCommodities {
                     case "SB=F":
                         CommonResources.arrayNameTickersCommodities[8] = res.getName();
                         CommonResources.arrayRateTickersCommodities[8] = res.getLastTradePriceOnly();
-                        CommonResources.arrayChangeTickersCommodities1[8] = res.getChange();
+                        CommonResources.arrayChangeTickersCommodities[8] = res.getChange();
                         CommonResources.arrayDateTickersCommodities[8] = res.getSymbol();
                         CommonResources.arrrayTimeTickersCommodities[8] = res.getStockExchange();
 

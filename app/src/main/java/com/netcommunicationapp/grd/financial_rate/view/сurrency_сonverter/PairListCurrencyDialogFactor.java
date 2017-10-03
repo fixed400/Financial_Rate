@@ -31,7 +31,6 @@ public class PairListCurrencyDialogFactor extends DialogFragment implements
 
     onEventListenerFactor FactorEventListener;
 
-    //сделать массив в sring
     String[] listitems = { "USD", "EUR", "GBP", "CAD","JPY", "CHF",
             "CNH", "AUD","PLN", "RUB", "UAH",
             "BTC",
@@ -126,7 +125,6 @@ ListView mylist;
         super.onResume();
         Window window = getDialog().getWindow();
         //window.setLayout(350, 1500);
-
         window.setGravity(Gravity.CENTER);
     }
 

@@ -13,7 +13,7 @@ import java.util.Map;
  * <p>
  * TODO: Replace all uses of this class before publishing your app.
  */
-// DEFAULT GENERATE CODE - AND my custom version
+
 public class MarketCommoditiesContent {
 
     /**
@@ -35,21 +35,20 @@ public class MarketCommoditiesContent {
     //Зачем вызывать каждый раз инициализацию статических переменных в конструкторе?,
     // если можно сделать это единожды, таким образом не тратить ресурсы на повторные инициализации
     static {
-        // Add some sample items.
+
         for (int i = 1; i <= COUNT; i++) {
             addItem(createDummyItem(i));
         }
     }
 
-    //fill,fill_in,fill_out,supplement - пополнять  ,replenish - дополнять
     private static void addItem(MarketItem item) {
-        ITEMS.add(item); // fill list
-        ITEM_MAP.put(item.id, item); // fill map
+        ITEMS.add(item);
+        ITEM_MAP.put(item.id, item);
     }
 
     private static MarketItem createDummyItem(int i) {
         int position = i - 1;
-        // "Hello World".substring(6) -> "World" --- cut sTRING
+
         return new MarketItem(CommonResources.listNameTickersCommodities.get(position).substring(0, 15),
                 CommonResources.listRateTickersCommodities.get(position),
                 CommonResources.listChangeTickersCommodities.get(position) + " %",
@@ -67,9 +66,7 @@ public class MarketCommoditiesContent {
         return builder.toString();
     }
 
-    /**
-     * A dummy item representing a piece of content.
-     */
+
     public static class MarketItem {
 
         public final String content;
@@ -77,7 +74,7 @@ public class MarketCommoditiesContent {
         public final String content2;
         public final String content3;
         public final String content4;
-        public String id = "1";// dummy for Map (dummy - фиктивный)
+        public String id = "1";
 
 
         public MarketItem(String content, String content1 ,

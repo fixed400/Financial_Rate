@@ -27,12 +27,10 @@ public class CommoditiesFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
 
-
-    //.........my..............
     private RecyclerView myRecyclerView;
     private StaggeredGridLayoutManager staggeredGridLayoutManagerVertical;
     private MyRecyclerViewAdapterCommodities myRecyclerViewAdapter;
-    //.........................
+
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -87,8 +85,6 @@ public class CommoditiesFragment extends Fragment {
         */
 
         //----------------------------------------------------
-
-
         // /*
        //====================Adapter 2=================MyItemRecyclerViewAdapter=============
         if (view instanceof RecyclerView) {
@@ -102,28 +98,18 @@ public class CommoditiesFragment extends Fragment {
             }
             recyclerView.setAdapter(new MyItemRecyclerViewAdapter(MarketCommoditiesContent.ITEMS));
 
-
-
         }
         //============================================
        // */
-
-
-
-
         return view;
     }
 
    // /*
-    //здесь реализовать заполнение List<List>
+    //trial
     private void prepareItems(){
         Field[] fieldDrawables = android.R.drawable.class.getFields();
-        //for(int i=0; i<fieldDrawables.length; i++){
          for(int i=0; i<9; i++){
-           //  for(int i = 0; i<CommonResources.arrayNameTickersCommodities.length;i++)
-       // for(int i=0; i<5; i++){
             Field field = fieldDrawables[i];
-
             try {
                 int value = (int) field.get(fieldDrawables);
                 myRecyclerViewAdapter.add(
@@ -133,7 +119,6 @@ public class CommoditiesFragment extends Fragment {
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
-
         }
     }
    // */
@@ -141,9 +126,7 @@ public class CommoditiesFragment extends Fragment {
 
     @Override public void onViewCreated(View view,
                                         @Nullable Bundle savedInstanceState) {
-
     }
-
 
     @Override
     public void onAttach(Context context) {

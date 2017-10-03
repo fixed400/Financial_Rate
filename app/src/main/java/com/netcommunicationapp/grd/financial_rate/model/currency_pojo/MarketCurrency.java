@@ -6,13 +6,6 @@ package com.netcommunicationapp.grd.financial_rate.model.currency_pojo;
 
 import com.google.gson.annotations.SerializedName;
 
-/*
-
-@Expose
- Аннотация Expose. Она работает только в паре с методом GsonBuilder.excludeFieldsWithoutExposeAnnotation() ,
- который исключает из обработки все поля, не имеющие аннотации Expose.
-  Но, выходит, чтобы исключить одно поле, нам нужно добавить аннотации ко всем остальным полям.
- */
 
 public class MarketCurrency {
 

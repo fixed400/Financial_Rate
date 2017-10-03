@@ -53,21 +53,7 @@ import java.util.TimerTask;
 
 import static android.content.Context.MODE_PRIVATE;
 
-
-//import android.support.v4.app.Fragment;
-//import android.Fragment;
-
-/* *
- * A fragment representing a list of Items.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
- * interface.
- */
-//Toast.makeText(getActivity(),getResources().getString(R.string.info_check_connection) , Toast.LENGTH_LONG).show();
-// ETH USD = https://finance.yahoo.com/quote/ETHUSD%3DX?p=ETHUSD%3DX
 public class CurrencyListFragment extends ListFragment implements IView {
-//public class CurrencyListFragment extends Fragment {
-
 
     /*
     onAttach(Activity)
@@ -91,9 +77,9 @@ onDetach()
      */
 
     public static String LOG_TAG = "CurrencyListFrag_log";
-    private final static String FILENAME = CommonResources.FILENAME; // имя файла
-    private final static String FILENAME2 = CommonResources.FILENAME2; // имя файла
-    private final static String FILENAME3 = CommonResources.FILENAME3; // имя файла
+    private final static String FILENAME = CommonResources.FILENAME;
+    private final static String FILENAME2 = CommonResources.FILENAME2;
+    private final static String FILENAME3 = CommonResources.FILENAME3;
 
     // --------------------------------------------------------------------------------------------
 
@@ -127,8 +113,6 @@ onDetach()
         t.start();
     }
 
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -161,17 +145,11 @@ onDetach()
                             //---------------------------------------------------------------
                             if(networkInfo != null && networkInfo.isConnected()==true ) {
 
-                                Log.d(LOG_TAG, " NetworkInfo ----------- "+networkInfo);
-                                Log.d(LOG_TAG, " networkInfo.isConnected()------------ "+networkInfo.isConnected());
-
-
                                 ReloadTask reloadTask = new ReloadTask(getActivity());
                                 reloadTask.execute();
-
-                                reLoadList(); // !Был сбой здесь
-                                //reload
+                                reLoadList();
                                 Toast.makeText(getActivity(),getResources().getString(R.string.reload),Toast.LENGTH_SHORT).show();
-                                //showAttention();
+
                             }else {
                                 Intent intent = new Intent(getActivity(), PreLoaderActivity.class);
                                 startActivity(intent);
@@ -189,8 +167,6 @@ onDetach()
         return rootView;
 
     }
-
-
 
     //=========================================================
 
@@ -218,8 +194,6 @@ onDetach()
             public void run() {
                 loop++;
                 Log.d(LOG_TAG, " TimeTask попытка получить   данные в потоке = "+loop);
-                // https://developer.android.com/reference/android/app/Activity.html#runOnUiThread(java.lang.Runnable)
-                // getActivity().runOnUiThread(new Runnable() {
                 getActivity().runOnUiThread(new Runnable() { // !!!can fall- java.lang.NullPointerException: --- java.lang.NullPointerException: Attempt to invoke virtual method 'void android.app.Activity.runOnUiThread(java.lang.Runnable)' on a null object reference
                     @Override
                     public void run() {
@@ -262,7 +236,6 @@ onDetach()
 
     private  void loadPref(){
         mySharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
-
         //boolean getBoolean(String key, boolean defValue);
         boolean my_checkbox_preference = mySharedPreferences.getBoolean("check_box", false);
         allowAnimation=my_checkbox_preference;
@@ -271,8 +244,6 @@ onDetach()
     //============================== list =========================
     @Override
     public  void loadList() {
-
-
         CustomListArrayAdapterHolder arrayAdapter = new CustomListArrayAdapterHolder(getActivity(),
                 R.layout.list_fragment_row, CommonResources.arrayNameTickers, CommonResources.arrayRateTickers, CommonResources.arrayDateTickers, CommonResources.arrrayTimeTickers);
         setListAdapter(arrayAdapter);
@@ -291,39 +262,28 @@ onDetach()
             Animation animation = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), animId);
 
             if (allowAnimation) {
-
-                Log.d("EfRAGMENT", "ITEM IS " + animId);
-                Log.d("EfRAGMENT", "list_chooser --- " + listChooserItem);
-
-                // Animation  animation = AnimationUtils.loadAnimation(getActivity().getApplicationContext(), animId);
-                // Animation  animation = AnimationUtils.loadSettingsAnimation(getActivity().getApplicationContext(), R.anim.scaling);
-
-                LayoutAnimationController controller = new LayoutAnimationController(animation); //Заказать настройки дисплея управления
-                controller.setOrder(LayoutAnimationController.ORDER_NORMAL); //Descend - step down - move down
+                LayoutAnimationController controller = new LayoutAnimationController(animation);
+                controller.setOrder(LayoutAnimationController.ORDER_NORMAL);
                 controller.setDelay((float) 0.7);
                 getListView().setLayoutAnimation(controller);
                 getListView().startLayoutAnimation();
             }
 
         }
-
         // not using animation when app is running
         CommonResources.repeatAnimation = false;
-
-
     }
     //------------------------------------2----------------------
     public void reLoadList(){
 
-        //CustomListArrayAdapter arrayAdapter = new CustomListArrayAdapter(getActivity(), R.layout.list_fragment_row);
         CustomListArrayAdapter arrayAdapter = new CustomListArrayAdapter(getActivity(),
                 R.layout.list_fragment_row,  CommonResources.arrayNameTickers, CommonResources.arrayRateTickers, CommonResources.arrayDateTickers, CommonResources.arrrayTimeTickers);
         setListAdapter(arrayAdapter);
 
         //--------------- Animation --------------------------
         Animation animation= AnimationUtils.loadAnimation(getActivity().getApplicationContext(), R.anim.scaling4);
-        LayoutAnimationController controller = new LayoutAnimationController(animation); //Заказать настройки дисплея управления
-        controller.setOrder(LayoutAnimationController.ORDER_NORMAL); //Descend - step down - move down
+        LayoutAnimationController controller = new LayoutAnimationController(animation);
+        controller.setOrder(LayoutAnimationController.ORDER_NORMAL);
         controller.setDelay((float) 0.4);
         getListView().setLayoutAnimation(controller);
         getListView().startLayoutAnimation();
@@ -335,7 +295,6 @@ onDetach()
     //--------------------------------------------------------------------------------------
     @Override
     public  void showNotice() {
-        Log.d(LOG_TAG, " ========== Проверте подключение к интернет. =================");
 
         handler.post(new Runnable() {
             @Override
@@ -351,20 +310,14 @@ onDetach()
     @Override
     public void onResume() {
         super.onResume();
-        Log.d(LOG_TAG, " --- CurrencyListFragment   onResume() ");
+        Log.d(LOG_TAG, " --- CurrencyListFragment -- onResume() ");
 
-        /*
-        byte count = 0;
-        if(count!=0)loadList();//filter for first showing
-            count++;
-        loadSettingsAnimation();
-        */
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.d(LOG_TAG, "----onPause() -----------CurrencyListFragment ");
+        Log.d(LOG_TAG, "--CurrencyListFragment----onPause() ");
 
         CommonResources.index = this.getListView().getFirstVisiblePosition();
         View v = this.getListView().getChildAt(0);
@@ -374,18 +327,18 @@ onDetach()
 
     public void onDestroyView() {
         super.onDestroyView();
-        Log.d(LOG_TAG, "CurrencyListFragment onDestroyView");
+        Log.d(LOG_TAG, "--CurrencyListFragment --onDestroyView");
     }
 
     public void onDestroy() {
         super.onDestroy();
-        Log.d(LOG_TAG, "CurrencyListFragment onDestroy");
-        // CommonResources.repeatAnimation = true;
+        Log.d(LOG_TAG, "--CurrencyListFragment ---onDestroy");
+
     }
 
     public void onDetach() {
         super.onDetach();
-        Log.d(LOG_TAG, "CurrencyListFragment onDetach");
+        Log.d(LOG_TAG, "--CurrencyListFragment ---onDetach");
     }
 
 }

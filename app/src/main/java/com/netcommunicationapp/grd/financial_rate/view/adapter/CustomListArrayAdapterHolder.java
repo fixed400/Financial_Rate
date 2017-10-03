@@ -19,9 +19,6 @@ import com.netcommunicationapp.grd.financial_rate.common.CommonResources;
 public class CustomListArrayAdapterHolder  extends ArrayAdapter<String> {
     private Context mContext;
 
-
-    //Display order flags - порядок отображения флагов
-    //Sequence - последовательность
     Integer[] resImg = {
 
             R.drawable.eur_usd_flags, //1
@@ -67,41 +64,19 @@ public class CustomListArrayAdapterHolder  extends ArrayAdapter<String> {
             R.drawable.usd_mxn_pair, //35
 
 
-            /*
-
-
-             R.drawable.none, //35
-
-             R.drawable.none, //36
-             R.drawable.none //37
-             */
-
     };
 
-    // String[] itemName = new String[27];
-    // String[] itemRate = new String[27];
-    // String[] itemDate = new String[27];
-    // String[] itemTime = new String[27];
 
-    String[] itemName = new String[6];
-    String[] itemRate = new String[6];
-    String[] itemDate = new String[6];
-    String[] itemTime = new String[6];
+    String[] itemName = new String[5];
+    String[] itemRate = new String[5];
+    String[] itemDate = new String[5];
+    String[] itemTime = new String[5];
 
-
-    // String[] itemName = new String[35];
-    // String[] itemRate = new String[35];
-    // String[] itemDate = new String[35];
-    // String[] itemTime = new String[35];
 
 
     public int imgId;
 
-    ImageView imageView;
-    TextView txtTitle, txtTitle2, txtTitle3;
 
-
-    // make cheking for empty array
     //-------------------------------------------------------------
 
     public CustomListArrayAdapterHolder(Activity context, int layout) {
@@ -110,10 +85,6 @@ public class CustomListArrayAdapterHolder  extends ArrayAdapter<String> {
 
         this.mContext=context;
 
-        //this.itemName =itemname1;
-        // this.itemRate =itemname2;
-        // this.itemDate =itemname3;
-        // this.itemTime =itemname4;
         this.itemName =CommonResources.arrayNameTickers;
         this.itemRate =CommonResources.arrayRateTickers;
         this.itemDate =CommonResources.arrayDateTickers;
@@ -145,9 +116,6 @@ public class CustomListArrayAdapterHolder  extends ArrayAdapter<String> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        // НЕ применять ViewHolder  тормозной патерн  !!!
-
-        // /*
         View viewPreviouslyCreated = convertView; // keep previosly created items
         ViewHolder holderFindViewByIds; //keep findViewByIDs
 
@@ -167,48 +135,16 @@ public class CustomListArrayAdapterHolder  extends ArrayAdapter<String> {
             viewPreviouslyCreated.setTag(holderFindViewByIds); // keep holders
 
         } else {
-            //retrive (getting)holders
             holderFindViewByIds = (ViewHolder) viewPreviouslyCreated.getTag();
         }
 
-
-        //  LayoutInflater inflater1= (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        //  View rowView=inflater1.inflate(R.layout.list_fragment_row, null, true);
-        //View rowView=inflater1.inflate(R.layout.item_layout, null, true);
         holderFindViewByIds.imageView.setImageResource(resImg[position]);
-        //ImageView imageView = (ImageView) rowView.findViewById(R.id.imageViewIcon);
-        //imageView.setImageResource(resImg[position]);
 
         holderFindViewByIds.txtTitle.setText(CommonResources.arrayNameTickers[position]);
         holderFindViewByIds.txtTitle2.setText("Date " + itemDate[position] + "\nTime " + itemTime[position]);
         holderFindViewByIds.txtTitle3.setText(itemRate[position]);
 
         return viewPreviouslyCreated;
-        // */
-
-
-
-        /*
-        //-----------  conventional ,normal,regular --------------------------------------------
-        LayoutInflater inflater=(LayoutInflater) mContext
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View rowView=inflater.inflate(R.layout.list_fragment_row, null, true);
-
-
-        imageView = (ImageView) rowView.findViewById(R.id.imageViewIcon);
-        txtTitle = (TextView) rowView.findViewById(R.id.tickerSymbol);
-        txtTitle2 = (TextView) rowView.findViewById(R.id.timeData);
-        txtTitle3 = (TextView) rowView.findViewById(R.id.tickerRate);
-
-        imageView.setImageResource(resImg[position]);
-        txtTitle.setText(CommonResources.arrayNameTickers[position]);
-        txtTitle2.setText("Date "+ itemDate[position]+"\nTime "+ itemTime[position]);
-        txtTitle3.setText(itemRate[position]);
-
-       return rowView;
-        //--------------------------------------------
-        */
-
 
     }
 }

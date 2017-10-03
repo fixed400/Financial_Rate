@@ -14,25 +14,21 @@ import android.util.Log;
 import com.netcommunicationapp.grd.financial_rate.R;
 
 
-// предуприеждающий вход
+//Для предуприеждающего входа
 public class WarningDialogFragment extends DialogFragment {
 
     final String LOG_TAG = "myLogs";
 
-   // @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder
-
 
                 .setTitle(getResources().getString(R.string.warming))
                 .setMessage(getResources().getString(R.string.danger_info))
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
-
-                        // ((PreViewerActivity) getActivity()).tryAgainToGetConnection();
                     }
                 })
                 .setNegativeButton("Exit", new DialogInterface.OnClickListener() {

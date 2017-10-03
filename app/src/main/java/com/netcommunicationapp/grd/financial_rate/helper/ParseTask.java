@@ -21,7 +21,7 @@ public class ParseTask extends AsyncTask<Void, Void, String> {
 
     private Context context;
 
-    private CurrencyListFragment fragment;// retain reference -  хранит ссылку
+    private CurrencyListFragment fragment;
 
     public ParseTask(Context context) {
         this.context = context;
@@ -60,20 +60,16 @@ public class ParseTask extends AsyncTask<Void, Void, String> {
         super.onPostExecute(strJson);
 
         IView iView;
-        //iView = new CurrencyListFragment();
         iView = fragment;
 
-         iView.loadList();
-        //fragment.loadList(); - тоже работает
+        iView.loadList();
 
-        File f = context.getFileStreamPath(CommonResources.FILENAME);//some FILENAME
+        File f = context.getFileStreamPath(CommonResources.FILENAME);
         if(f.length() != 0) {
             Log.d(LOG_TAG, " DATA received ");
         }else{
 
-            //fragment.showNotice();
             iView.showNotice();
-
 
         }
     }

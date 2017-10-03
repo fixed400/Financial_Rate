@@ -6,8 +6,6 @@ package com.netcommunicationapp.grd.financial_rate.model.currency_pojo;
 
 import com.google.gson.annotations.SerializedName;
 
-
-//Expose - разоблачать
 public class Rate {
 
     @SerializedName("id")

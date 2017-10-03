@@ -15,7 +15,6 @@ import com.netcommunicationapp.grd.financial_rate.R;
 
 public class AboutAppFragment extends Fragment {
 
-    //конструктор
     public AboutAppFragment() {
     }
 

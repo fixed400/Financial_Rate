@@ -16,15 +16,10 @@ import android.widget.TextView;
 import com.netcommunicationapp.grd.financial_rate.R;
 import com.netcommunicationapp.grd.financial_rate.common.CommonResources;
 
-// add VIEW HOLDER
 public class CustomListArrayAdapter extends ArrayAdapter<String> {
 
     private Context mContext;
 
-
-
-    //Display order flags - порядок отображения флагов
-    //Sequence - последовательность
     Integer[] resImg={
 
             R.drawable.eur_usd_flags, //1
@@ -70,27 +65,7 @@ public class CustomListArrayAdapter extends ArrayAdapter<String> {
             R.drawable.usd_mxn_pair, //35
 
 
-            /*
-
-
-             R.drawable.none, //35
-
-             R.drawable.none, //36
-             R.drawable.none //37
-             */
-
     };
-
-   // String[] itemName = new String[27];
-   // String[] itemRate = new String[27];
-   // String[] itemDate = new String[27];
-   // String[] itemTime = new String[27];
-
-   // String[] itemName = new String[34];
-   // String[] itemRate = new String[34];
-   // String[] itemDate = new String[34];
-   // String[] itemTime = new String[34];
-
 
     String[] itemName = new String[35];
     String[] itemRate = new String[35];
@@ -103,20 +78,12 @@ public class CustomListArrayAdapter extends ArrayAdapter<String> {
     ImageView imageView;
     TextView txtTitle,txtTitle2,txtTitle3;
 
-
-    // make cheking for empty array
-    //-------------------------------------------------------------
-
     public CustomListArrayAdapter(Activity context, int imgid1) {
         super(context, R.layout.item_layout);
         // TODO Auto-generated constructor stub
 
         this.mContext=context;
 
-        //this.itemName =itemname1;
-       // this.itemRate =itemname2;
-       // this.itemDate =itemname3;
-       // this.itemTime =itemname4;
         this.itemName =CommonResources.arrayNameTickers;
         this.itemRate =CommonResources.arrayRateTickers;
         this.itemDate =CommonResources.arrayDateTickers;
@@ -124,7 +91,7 @@ public class CustomListArrayAdapter extends ArrayAdapter<String> {
         this.imgId=imgid1;
     }
 
-    //FragmentList -  работает только с этим адаптерем почему-то,разобратся
+    //FragmentList adapter
     public CustomListArrayAdapter(Activity context, int imgid1, String[] itemname1, String[] itemname2, String[] itemname3, String[] itemname4) {
         super(context, R.layout.item_layout, itemname1);
         // TODO Auto-generated constructor stub
@@ -138,63 +105,13 @@ public class CustomListArrayAdapter extends ArrayAdapter<String> {
         this.imgId=imgid1;
     }
 
-    static class ViewHolder {
-        ImageView imageView;
-        TextView txtTitle;
-        TextView txtTitle2;
-        TextView txtTitle3;
-
-    }
 
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        // НЕ применять ViewHolder  тормозной патерн  !!!
-
-/*
-        View viewPreviouslyCreated = convertView; // keep previosly created items
-        ViewHolder holderFindViewByIds; //keep findViewByIDs
-
-
-        if (viewPreviouslyCreated == null) {
-
-            LayoutInflater inflater = (LayoutInflater) mContext
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            viewPreviouslyCreated = inflater.inflate(R.layout.list_fragment_row, null, true);
-             //-----------------------------------------------
-            holderFindViewByIds = new ViewHolder();
-            holderFindViewByIds.imageView = (ImageView) viewPreviouslyCreated.findViewById(R.id.imageViewIcon);
-            holderFindViewByIds.txtTitle = (TextView) viewPreviouslyCreated.findViewById(R.id.tickerSymbol);
-            holderFindViewByIds.txtTitle2 = (TextView) viewPreviouslyCreated.findViewById(R.id.timeData);
-            holderFindViewByIds.txtTitle3 = (TextView) viewPreviouslyCreated.findViewById(R.id.tickerRate);
-
-            viewPreviouslyCreated.setTag(holderFindViewByIds); // keep holders
-
-        } else {
-            //retrive (getting)holders
-            holderFindViewByIds = (ViewHolder) viewPreviouslyCreated.getTag();
-        }
-
-
-      //  LayoutInflater inflater1= (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-      //  View rowView=inflater1.inflate(R.layout.list_fragment_row, null, true);
-        //View rowView=inflater1.inflate(R.layout.item_layout, null, true);
-        holderFindViewByIds.imageView.setImageResource(resImg[position]);
-        //ImageView imageView = (ImageView) rowView.findViewById(R.id.imageViewIcon);
-        //imageView.setImageResource(resImg[position]);
-
-        holderFindViewByIds.txtTitle.setText(CommonResources.arrayNameTickers[position]);
-        holderFindViewByIds.txtTitle2.setText("Date "+ itemDate[position]+"\nTime "+ itemTime[position]);
-        holderFindViewByIds.txtTitle3.setText(itemRate[position]);
-
-        return viewPreviouslyCreated;
-        */
-
-
         LayoutInflater inflater=(LayoutInflater) mContext
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView=inflater.inflate(R.layout.list_fragment_row, null, true);
-
 
          imageView = (ImageView) rowView.findViewById(R.id.imageViewIcon);
          txtTitle = (TextView) rowView.findViewById(R.id.tickerSymbol);
@@ -206,16 +123,7 @@ public class CustomListArrayAdapter extends ArrayAdapter<String> {
         txtTitle2.setText("Date "+ itemDate[position]+"\nTime "+ itemTime[position]);
         txtTitle3.setText(itemRate[position]);
 
-        //--------------------------------------------
-
-
-
         return rowView;
-
-
-
-
     }
-
 
 }

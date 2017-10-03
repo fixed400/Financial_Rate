@@ -27,7 +27,7 @@ public class PairListCurrencyDialogRatio extends DialogFragment implements
         AdapterView.OnItemClickListener {
 
 
-        // FOR send data to activity
+        // send data to activity
         public interface onEventListenerRatio {
             public void Value2Event(String s);
         }
@@ -46,12 +46,9 @@ public class PairListCurrencyDialogRatio extends DialogFragment implements
             "SGD",
             "MXN",
             "THB"
-
-
     };
 
         ListView mylist;
-
 
         @Override
         public void onAttach(Activity activity) {
@@ -64,8 +61,6 @@ public class PairListCurrencyDialogRatio extends DialogFragment implements
 
         }
 
-
-
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -77,8 +72,6 @@ public class PairListCurrencyDialogRatio extends DialogFragment implements
             getDialog().setCanceledOnTouchOutside(true);
             return view;
         }
-
-
 
         @Override
         public void onActivityCreated(Bundle savedInstanceState) {
@@ -108,8 +101,6 @@ public class PairListCurrencyDialogRatio extends DialogFragment implements
 
         }
 
-
-
     //--------------------------
 
     @Override
@@ -123,8 +114,6 @@ public class PairListCurrencyDialogRatio extends DialogFragment implements
         super.onResume();
         Window window = getDialog().getWindow();
       //  window.setLayout(350, 1999);
-
-
         window.setGravity(Gravity.CENTER);
     }
 
