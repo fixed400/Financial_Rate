@@ -3,11 +3,8 @@ package com.netcommunicationapp.grd.financial_rate;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,49 +18,35 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.netcommunicationapp.grd.financial_rate.common.CommonResources;
+import com.netcommunicationapp.grd.financial_rate.util.SettingsFragment;
 import com.netcommunicationapp.grd.financial_rate.view.AboutAppFragment;
+import com.netcommunicationapp.grd.financial_rate.view.CommoditiesFragment;
 import com.netcommunicationapp.grd.financial_rate.view.CurrencyListFragment;
+import com.netcommunicationapp.grd.financial_rate.view.SharesQuoteFragment;
 import com.netcommunicationapp.grd.financial_rate.view.dialogs.InfoDialogFragment;
 import com.netcommunicationapp.grd.financial_rate.view.сurrency_сonverter.ConverterFragment;
-import com.netcommunicationapp.grd.financial_rate.view.сurrency_сonverter.PairListCurrencyDialogFragment1;
-import com.netcommunicationapp.grd.financial_rate.view.сurrency_сonverter.PairListCurrencyDialogFragment2;
+import com.netcommunicationapp.grd.financial_rate.view.сurrency_сonverter.PairListCurrencyDialogFactor;
+import com.netcommunicationapp.grd.financial_rate.view.сurrency_сonverter.PairListCurrencyDialogRatio;
 
-//import com.my_research_app.grd.finnacetiks_4_4.view.dialogs.InfoDialogFragment;
-//import com.my_research_app.grd.finnacetiks_4_4.view.сurrency_сonverter.ConverterFragment;
-//import com.my_research_app.grd.finnacetiks_4_4.view.CurrencyListFragment;
-//import com.my_research_app.grd.finnacetiks_4_4.view.AboutAppFragment;
-//import com.my_research_app.grd.finnacetiks_4_4.view.сurrency_сonverter.PairListCurrencyDialogFragment1;
-//import com.my_research_app.grd.finnacetiks_4_4.view.сurrency_сonverter.PairListCurrencyDialogFragment2;
 
-// Ticker symbol
-public class MainNavigationDrawerActivity extends AppCompatActivity implements PairListCurrencyDialogFragment1.onEventListenerPair1,PairListCurrencyDialogFragment2.onEventListenerPair2 {
+public class MainNavigationDrawerActivity extends AppCompatActivity implements PairListCurrencyDialogFactor.onEventListenerFactor,PairListCurrencyDialogRatio.onEventListenerRatio {
 
-   private final String LOG_TAG = "LOG_Activity(Nav.Draw)";
-    Bundle bundle;
+    private final String LOG_TAG = "LOG_Activity(Nav.Draw)";
+
     private DrawerLayout myDrawerLayout;
     private ListView myDrawerList;
     private android.support.v7.app.ActionBarDrawerToggle myDrawerToggle;
 
-    // navigation drawer title
     private CharSequence myDrawerTitle;
-    // used to store app title
     private CharSequence myTitle;
 
     private String[] viewsNames;
-
     private String selectedCurrency1 = "USD";
     private String selectedCurrency2 = "EUR";
 
-    static boolean showAnimation = false;
+    boolean restraint;
 
-    public static boolean allowAnimation;
-    static SharedPreferences mySharedPreferences;
-    public static String listChooserItem;
-    public static int animId;
-
-    private static Context context;
-
-    private static FragmentManager fragmentManagerPass;
+    Fragment fragment = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -78,14 +61,11 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
          */
         setContentView(R.layout.activity_main_navigation_drawer);
 
-
-        context=this;
-
         myTitle =  getTitle();
         myDrawerTitle = getResources().getString(R.string.menu);
 
         // load slide menu items
-        viewsNames = getResources().getStringArray(R.array.views_array); //list names in menu drawer
+        viewsNames = getResources().getStringArray(R.array.nav_list_array); //list names in menu drawer
         myDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout); // display screen
         myDrawerList = (ListView) findViewById(R.id.left_drawer);  //шторка(curtain)
 
@@ -131,24 +111,16 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
         Toast.makeText(this, getResources().getString(R.string.danger_price), Toast.LENGTH_SHORT).show();
     }//----END onCrate()
 
-
     //=====================================================================
     public void Value1Event(String inputPair) {
-
-         selectedCurrency1 = inputPair;
+        selectedCurrency1 = inputPair;
         Log.d("Nav.Drawer",selectedCurrency1);
-
     }
 
     @Override
     public void Value2Event(String inputPair2) {
-
-
         selectedCurrency2 = inputPair2;
-
     }
-
-
 
     //=====================================================================
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
@@ -156,45 +128,54 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
         public void onItemClick(
                 AdapterView<?> parent, View view, int position, long id
         ) {
-            // display view for selected nav drawer item
             displayView(position);
         }
     }
 
     private void displayView(int position) {
-        // update the main content by replacing fragments
-        Fragment fragment = null;
-
         switch (position) {
             case 0:
-
                 fragment = new CurrencyListFragment();
-
+                restraint =true;
                 break;
             case 1:
-
-
                 fragment = sendToFragmentBundle(fragment);
-               // fragment = new AboutAppFragment();
-
+                restraint =false;
                 break;
-
             case 2:
-
                 fragment = new AboutAppFragment();
+                restraint =false;
                 break;
+
+            case 3:
+               // fragment = new AboutAppFragment();
+                // Сommodities
+                fragment = new CommoditiesFragment();
+              //   Intent intent = new Intent(this, SharesScrollingActivity.class);
+              //   startActivity(intent);
+                restraint =false;
+                break;
+           //     */
+            case 4:
+                // SharesScrollingActivity
+                // Intent intent = new Intent(this, SharesScrollingActivity.class);
+                // startActivity(intent);
+                fragment = new SharesQuoteFragment();
+                restraint =false;
+
+                break;
+            // /*
             default:
                 break;
+
 
         }
 
         if (fragment != null) {
-            // install fragment in view for activity
             FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.beginTransaction()
                     .replace(R.id.content_frame, fragment).commit();
 
-            // update selected item and title, then close the drawer// Выделяем выбранный пункт, обновляем заглавие, закрываем drawer панель:
             myDrawerList.setItemChecked(position, true);
             myDrawerList.setSelection(position);
             setTitle(viewsNames[position]);
@@ -215,7 +196,7 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
 
         return frg;
     }
-//------------------------menu-------------------
+    //------------------------menu-------------------
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
@@ -224,94 +205,31 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // toggle nav drawer on selecting action bar app icon/title
-      //  if (myDrawerToggle.onOptionsItemSelected(item)) {
-      //      return true;
-      //  }
 
-        ///-----------------------------
-        /*
-        int id = item.getItemId();
-
-        Fragment fragment = null;
-        android.app.FragmentManager fragmentManager = getFragmentManager();
-
-        if (id == R.id.list_item_attachment) {
-
-            //fragment = new EFragment();
-            //fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-
-            DialogFragment infoDialog = new InfoDialogFragment();
-            infoDialog.show(getFragmentManager(), "InfoApp");
-            return true;
-
-        }
-
-        else if (id == R.id.my_item2) {
-
-            fragment = new SettingsFragment();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
-
-        }
-        */
-        //--------------------------------------------
-           // DialogFragment infoDialog = new InfoDialogFragment();
-           // infoDialog.show(getFragmentManager(), "InfoApp");
-            //return true;
-
-        //-----------------------------------
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-
-            DialogFragment infoDialog = new InfoDialogFragment();
-            infoDialog.show(getFragmentManager(), "InfoApp");
-
+        //! For toggle nav drawer on selecting action bar app icon/title -- DONT DELETE THIS COMMENT!
+        if (myDrawerToggle.onOptionsItemSelected(item)) {
             return true;
         }
-        else if (id == R.id.my_item2) {
+        //-------------------------------------
+        switch (item.getItemId()) {
+            case R.id.action_settings:
 
-            Fragment fragment = null;
-            android.app.FragmentManager fragmentManager = getFragmentManager();
+                Fragment fragment = new SettingsFragment();
+                FragmentManager fragmentManager = getFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.content_frame, fragment).commit();
+                restraint =false;
+                return true;
+            case R.id.action_info:
 
-            fragment = new SettingsFragment();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
+                DialogFragment infoDialog = new InfoDialogFragment();
+                infoDialog.show(getFragmentManager(), "InfoApp");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
 
         }
-
-        return super.onOptionsItemSelected(item);
-
-    }// --end
-
-    //===================================================
-    private static void loadPref(){
-        mySharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-
-        //boolean getBoolean(String key, boolean defValue);
-        boolean my_checkbox_preference = mySharedPreferences.getBoolean("chb_animation", false);
-        allowAnimation=my_checkbox_preference;
     }
-
-    public static void loadSettingsAnimation() {
-
-        loadPref();
-        String listValue = mySharedPreferences.getString("list_chooser", "не выбрано");
-
-        listChooserItem =listValue;
-
-        switch (listValue){
-            case "1" :
-                animId =  R.anim.scaling_increase;
-                break;
-            case "2":
-                animId =  R.anim.scaling_protrusion;
-                break;
-            case "3":
-                animId =  R.anim.scaling_descent;
-                break;
-        }
-
-    }
-
 
     /**
      * Called when invalidateOptionsMenu() is triggered
@@ -351,39 +269,43 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
 
 
     @Override
-    public void onResume() {
-        super.onResume();
-        Log.d(LOG_TAG, "onResume() --- --- MainNavigationDrawerActivity ");
+    public void onBackPressed() {
+        if(!restraint) {
+            fragment = new CurrencyListFragment();
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.content_frame, fragment).commit();
 
-       // new ParserDateCurrency().doParceGSON(CurrencyListFragment.readJSONOfFile(CommonResources.FILENAME));
-       // CurrencyListFragment.reLoadList();
-
+            restraint =true;
+        }else{
+            finish();
+        }
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(LOG_TAG, "onResume() --- --- MainNavigationDrawerActivity ");
+    }
 
     @Override
     public void onPause()
     {
         super.onPause();
-       // CommonResources.showAnimation = false;
-       // CommonResources.showAnimation = true;
         Log.d(LOG_TAG, "onPause() --- MainNavigationDrawerActivity");
     }
 
     @Override
     public void onStop(){
         super.onStop();
-        //  CommonResources.showAnimation = false;
-        // CommonResources.showAnimation = true;
-        Log.d(LOG_TAG, "onDestroy()  --- MainNavigationDrawerActivity");
-
+        Log.d(LOG_TAG, "onStop()  --- MainNavigationDrawerActivity");
     }
 
     @Override
     public void onDestroy(){
         super.onDestroy();
-         CommonResources.showAnimation = true;
+        CommonResources.repeatAnimation = true;
         Log.d(LOG_TAG, "onDestroy()  --- MainNavigationDrawerActivity");
     }
 

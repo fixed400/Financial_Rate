@@ -4,26 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-    <item android:id="@+id/action_settings"
+    <item android:id="@+id/action_info"
         android:title="@string/action_info"
         android:orderInCategory="100"
         />
-    <item android:id="@+id/my_item2"
+    <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
         />
 
 </menu>
 
-    <!-- orig
-    <menu xmlns:app="http://schemas.android.com/apk/res-auto">
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".MainActivity">
-
-        <item android:id="@+id/action_settings"
-            android:title="@string/action_settings"
-            android:orderInCategory="100"
-            app:showAsAction="never" />
-
-    </menu>
-    -->

@@ -4,11 +4,20 @@
     <string name="action_info">Info</string>
     <string name="action_settings">Settings</string>
 
-    <string-array name="views_array">
+    <string-array name="nav_list_array">
         <item>Foreign Currency</item>
+
+
         <item>Converter</item>
+        <!--  <item>Settings</item> -->
+
         <item>About App</item>
+
+    <item>Сommodities</item>
+    <item>Shares</item>
+
     </string-array>
+
     <string name="menu">Мenu</string>
 
 
@@ -31,16 +40,16 @@
     <string name="screen_three">Экран №3</string>
 
 
-      <string name="info_check_connection">Check Internet connection .\n
+    <string name="info_check_connection">Check Internet connection .\n
 Update data</string>
 
-     <string name="warming">Warning !</string>
+    <string name="warming">Warning !</string>
 
-    <string name="danger_info">The price on the foreign exchange market can drastically change throughout the day depending on news background!
+    <string name="danger_info">The price on the foreign exchange marketCurrency can drastically change throughout the day depending on news background!
 Quotations in this application are approximate and do not reflect the exchange price in real-time!The result of coverter is approximate! Large numbers are rounded!</string>
 
 
-<string name="danger_price">
+    <string name="danger_price">
         Currency quotes are approximate!
     </string>
 
@@ -74,18 +83,15 @@ Quotations in this application are approximate and do not reflect the exchange p
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sory">Sorry Bitcoin quotes is temporarily not available</string>
 
+    <string name="ref_info">Open link in new window?</string>
 
     <!-- ***********************PREFERENCE******************** -->
-    <string name="checkbox1_title">Темный фон меню</string>
-    <string name="checkbox1_summary">Summary of CheckBox 1</string>
-    <string name="checkbox2_title">Темный фон меню</string>
-    <string name="checkbox2_summary">Set on/off</string>
-    <string name="checkbox3_title">Темный фон меню</string>
-    <string name="checkbox3_summary">Summary of CheckBox 3</string>
-    <string name="edittext1_title">EditText 1</string>
-    <string name="edittext1_summary">Summary of EditText 1</string>
-    <string name="list1_title">Выбор анимации</string>
-    <string name="list1_summary">Выбрать эффект из списка</string>
+
+    <string name="checkbox_summary">Set on/off</string>
+
+    <string name="list1_title">Select an animation</string>
+    <string name="list_summary">Select an effect from the list</string>
+    <string name="animation_list">Animation</string>
     <string-array name="entries">
         <item>increase</item>
         <item>protrusion</item>
@@ -96,5 +102,7 @@ Quotations in this application are approximate and do not reflect the exchange p
         <item>2</item>
         <item>3</item>
     </string-array>
+
+
 
 </resources>

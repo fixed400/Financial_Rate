@@ -11,17 +11,18 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.netcommunicationapp.grd.financial_rate.view.PreViewerActivity;
+import com.netcommunicationapp.grd.financial_rate.PreLoaderActivity;
 import com.netcommunicationapp.grd.financial_rate.R;
 
 
 public class AlertDialogFragment extends DialogFragment {
 
-    final String LOG_TAG = "myLogs";
+    final String LOG_TAG = "AlertDialogFrag";
 
    // @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setMessage(getResources().getString(R.string.what_do))
                // .setIcon(R.drawable.ic_launcher_cat)
@@ -30,12 +31,12 @@ public class AlertDialogFragment extends DialogFragment {
                     public void onClick(DialogInterface dialog, int id) {
                        // ((MainActivity) getActivity()).checkConnect();
                       //  ((MainActivity) getActivity()).runTaskUi();
-                         ((PreViewerActivity) getActivity()).tryAgainToGetConnection();
+                         ((PreLoaderActivity) getActivity()).tryAgainToGetConnection();
                     }
                 })
                 .setNeutralButton(getResources().getString(R.string.exit), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                       ((PreViewerActivity) getActivity()).closeAppRate();
+                       ((PreLoaderActivity) getActivity()).closeApp();
                     }
                 });
 

@@ -14,7 +14,7 @@ import com.google.gson.annotations.SerializedName;
   Но, выходит, чтобы исключить одно поле, нам нужно добавить аннотации ко всем остальным полям.
  */
 
-public class Market {
+public class MarketCurrency {
 
     @SerializedName("query")
     private Query query;
@@ -23,14 +23,14 @@ public class Market {
      * No args constructor for use in serialization
      *
      */
-    public Market() {
+    public MarketCurrency() {
     }
 
     /**
      *
      * @param query
      */
-    public Market(Query query) {
+    public MarketCurrency(Query query) {
         super();
         this.query = query;
     }

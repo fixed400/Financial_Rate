@@ -4,45 +4,46 @@ import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
+import com.netcommunicationapp.grd.financial_rate.common.ConverterData;
 import com.netcommunicationapp.grd.financial_rate.common.CommonResources;
-import com.netcommunicationapp.grd.financial_rate.model.currency_pojo.Market;
+import com.netcommunicationapp.grd.financial_rate.model.currency_pojo.MarketCurrency;
 import com.netcommunicationapp.grd.financial_rate.model.currency_pojo.Rate;
-import com.netcommunicationapp.grd.financial_rate.util.ConverterData;
+
 
 
 /**
  * Created by grd on 1/22/17.
  */
 
-public class ParserDateCurrency {
+public class ParserDataCurrency {
 
     public static String LOG_TAG = "my_log_ParceData";
 
     //Constructor
-    public ParserDateCurrency(){
+    public ParserDataCurrency(){
 
     }
     //Constructor 2
-    public ParserDateCurrency(String jsonStr){
+    public ParserDataCurrency(String jsonStr){
 
         doParceGSON(jsonStr);
     }
 
     //--------------------------------------------------------------
 
-    public ParserDateCurrency doParceGSON (String gsonData){
+    public ParserDataCurrency doParceGSON (String gsonData){
 
         try {
             //Parse
             Gson gson = new Gson();
-            // Market -> Query -> Result -> Rate -> getName();
-            Market market = gson.fromJson(gsonData, Market.class);
+            // MarketCurrency -> Query -> Result -> Rate -> getName();
+            MarketCurrency marketCurrency = gson.fromJson(gsonData, MarketCurrency.class);
 
-            System.out.println(" Output my JSON " + market.getQuery().getCreated());
+            System.out.println(" Output my JSON " + marketCurrency.getQuery().getCreated());
 
             StringBuffer sb = new StringBuffer();
 
-            for (Rate res : market.getQuery().getResults().getRate()) {
+            for (Rate res : marketCurrency.getQuery().getResults().getRate()) {
 
                 sb.append("\n" + res.getId() + "\n" + res.getName() + "\n" + res.getRate() +
                         "\n" + res.getDate() + "\n" + res.getTime() +
@@ -70,200 +71,206 @@ public class ParserDateCurrency {
                         CommonResources.arrayDateTickers[2] = res.getDate();
                         CommonResources.arrrayTimeTickers[2] = res.getTime();
                         break;
-                    case "USDJPY":
+                    case "ETHUSD":
                         CommonResources.arrayNameTickers[3] = res.getName();
                         CommonResources.arrayRateTickers[3] = res.getRate();
                         CommonResources.arrayDateTickers[3] = res.getDate();
                         CommonResources.arrrayTimeTickers[3] = res.getTime();
                         break;
-                    case "USDCHF":
+                    case "USDJPY":
                         CommonResources.arrayNameTickers[4] = res.getName();
                         CommonResources.arrayRateTickers[4] = res.getRate();
                         CommonResources.arrayDateTickers[4] = res.getDate();
                         CommonResources.arrrayTimeTickers[4] = res.getTime();
                         break;
-                    case "AUDUSD":
+                    case "USDCHF":
                         CommonResources.arrayNameTickers[5] = res.getName();
                         CommonResources.arrayRateTickers[5] = res.getRate();
                         CommonResources.arrayDateTickers[5] = res.getDate();
                         CommonResources.arrrayTimeTickers[5] = res.getTime();
                         break;
-                    case "USDCAD":
+                    case "AUDUSD":
                         CommonResources.arrayNameTickers[6] = res.getName();
                         CommonResources.arrayRateTickers[6] = res.getRate();
                         CommonResources.arrayDateTickers[6] = res.getDate();
                         CommonResources.arrrayTimeTickers[6] = res.getTime();
                         break;
-                    case "USDCNH":
+                    case "USDCAD":
                         CommonResources.arrayNameTickers[7] = res.getName();
                         CommonResources.arrayRateTickers[7] = res.getRate();
                         CommonResources.arrayDateTickers[7] = res.getDate();
                         CommonResources.arrrayTimeTickers[7] = res.getTime();
                         break;
-                    case "USDPLN":
+                    case "USDCNH":
                         CommonResources.arrayNameTickers[8] = res.getName();
                         CommonResources.arrayRateTickers[8] = res.getRate();
                         CommonResources.arrayDateTickers[8] = res.getDate();
                         CommonResources.arrrayTimeTickers[8] = res.getTime();
                         break;
-                    case "USDRUB":
+                    case "USDPLN":
                         CommonResources.arrayNameTickers[9] = res.getName();
-                        //arrayRateTickers[0]=res.getDate();
                         CommonResources.arrayRateTickers[9] = res.getRate();
                         CommonResources.arrayDateTickers[9] = res.getDate();
                         CommonResources.arrrayTimeTickers[9] = res.getTime();
                         break;
-                    case "USDUAH":
+                    case "USDRUB":
                         CommonResources.arrayNameTickers[10] = res.getName();
+                        //arrayRateTickers[0]=res.getDate();
                         CommonResources.arrayRateTickers[10] = res.getRate();
                         CommonResources.arrayDateTickers[10] = res.getDate();
                         CommonResources.arrrayTimeTickers[10] = res.getTime();
                         break;
-                    case "EURGBP":
+                    case "USDUAH":
                         CommonResources.arrayNameTickers[11] = res.getName();
                         CommonResources.arrayRateTickers[11] = res.getRate();
                         CommonResources.arrayDateTickers[11] = res.getDate();
                         CommonResources.arrrayTimeTickers[11] = res.getTime();
                         break;
-                    case "BTCEUR":
+                    case "EURGBP":
                         CommonResources.arrayNameTickers[12] = res.getName();
                         CommonResources.arrayRateTickers[12] = res.getRate();
                         CommonResources.arrayDateTickers[12] = res.getDate();
                         CommonResources.arrrayTimeTickers[12] = res.getTime();
                         break;
-                    case "EURPLN":
+                    case "BTCEUR":
                         CommonResources.arrayNameTickers[13] = res.getName();
                         CommonResources.arrayRateTickers[13] = res.getRate();
                         CommonResources.arrayDateTickers[13] = res.getDate();
                         CommonResources.arrrayTimeTickers[13] = res.getTime();
                         break;
-                    case "EURRUB":
+                    case "EURPLN":
                         CommonResources.arrayNameTickers[14] = res.getName();
                         CommonResources.arrayRateTickers[14] = res.getRate();
                         CommonResources.arrayDateTickers[14] = res.getDate();
                         CommonResources.arrrayTimeTickers[14] = res.getTime();
                         break;
-                    case "EURUAH":
+                    case "EURRUB":
                         CommonResources.arrayNameTickers[15] = res.getName();
                         CommonResources.arrayRateTickers[15] = res.getRate();
                         CommonResources.arrayDateTickers[15] = res.getDate();
                         CommonResources.arrrayTimeTickers[15] = res.getTime();
                         break;
-
-                    case "BTCPLN":
+                    case "EURUAH":
                         CommonResources.arrayNameTickers[16] = res.getName();
                         CommonResources.arrayRateTickers[16] = res.getRate();
                         CommonResources.arrayDateTickers[16] = res.getDate();
                         CommonResources.arrrayTimeTickers[16] = res.getTime();
                         break;
-                    case "BTCRUB":
+
+                    case "BTCPLN":
                         CommonResources.arrayNameTickers[17] = res.getName();
                         CommonResources.arrayRateTickers[17] = res.getRate();
                         CommonResources.arrayDateTickers[17] = res.getDate();
                         CommonResources.arrrayTimeTickers[17] = res.getTime();
                         break;
-                    case "BTCUAH":
+                    case "BTCRUB":
                         CommonResources.arrayNameTickers[18] = res.getName();
                         CommonResources.arrayRateTickers[18] = res.getRate();
                         CommonResources.arrayDateTickers[18] = res.getDate();
                         CommonResources.arrrayTimeTickers[18] = res.getTime();
                         break;
-                    case "BYNRUB":
+                    case "BTCUAH":
                         CommonResources.arrayNameTickers[19] = res.getName();
                         CommonResources.arrayRateTickers[19] = res.getRate();
                         CommonResources.arrayDateTickers[19] = res.getDate();
                         CommonResources.arrrayTimeTickers[19] = res.getTime();
                         break;
-                    case "USDBYN":
+                    case "BYNRUB":
                         CommonResources.arrayNameTickers[20] = res.getName();
                         CommonResources.arrayRateTickers[20] = res.getRate();
                         CommonResources.arrayDateTickers[20] = res.getDate();
                         CommonResources.arrrayTimeTickers[20] = res.getTime();
                         break;
-                    case "KZTRUB":
+                    case "USDBYN":
                         CommonResources.arrayNameTickers[21] = res.getName();
                         CommonResources.arrayRateTickers[21] = res.getRate();
                         CommonResources.arrayDateTickers[21] = res.getDate();
                         CommonResources.arrrayTimeTickers[21] = res.getTime();
                         break;
-                    case "USDKZT":
+                    case "KZTRUB":
                         CommonResources.arrayNameTickers[22] = res.getName();
                         CommonResources.arrayRateTickers[22] = res.getRate();
                         CommonResources.arrayDateTickers[22] = res.getDate();
                         CommonResources.arrrayTimeTickers[22] = res.getTime();
                         break;
-                    case "USDGEL":
+                    case "USDKZT":
                         CommonResources.arrayNameTickers[23] = res.getName();
                         CommonResources.arrayRateTickers[23] = res.getRate();
                         CommonResources.arrayDateTickers[23] = res.getDate();
                         CommonResources.arrrayTimeTickers[23] = res.getTime();
                         break;
-
-                    case "USDTRY":
+                    case "USDGEL":
                         CommonResources.arrayNameTickers[24] = res.getName();
                         CommonResources.arrayRateTickers[24] = res.getRate();
                         CommonResources.arrayDateTickers[24] = res.getDate();
                         CommonResources.arrrayTimeTickers[24] = res.getTime();
                         break;
-                    case "USDILS":
+
+                    case "USDTRY":
                         CommonResources.arrayNameTickers[25] = res.getName();
                         CommonResources.arrayRateTickers[25] = res.getRate();
                         CommonResources.arrayDateTickers[25] = res.getDate();
                         CommonResources.arrrayTimeTickers[25] = res.getTime();
                         break;
-                    case "USDINR":
+                    case "USDILS":
                         CommonResources.arrayNameTickers[26] = res.getName();
                         CommonResources.arrayRateTickers[26] = res.getRate();
                         CommonResources.arrayDateTickers[26] = res.getDate();
                         CommonResources.arrrayTimeTickers[26] = res.getTime();
                         break;
-
-
-                    case "USDPKR":
+                    case "USDINR":
                         CommonResources.arrayNameTickers[27] = res.getName();
                         CommonResources.arrayRateTickers[27] = res.getRate();
                         CommonResources.arrayDateTickers[27] = res.getDate();
                         CommonResources.arrrayTimeTickers[27] = res.getTime();
                         break;
-                    case "USDEGP":
+
+
+                    case "USDPKR":
                         CommonResources.arrayNameTickers[28] = res.getName();
                         CommonResources.arrayRateTickers[28] = res.getRate();
                         CommonResources.arrayDateTickers[28] = res.getDate();
                         CommonResources.arrrayTimeTickers[28] = res.getTime();
                         break;
-
-
-                    case "USDTHB":
+                    case "USDEGP":
                         CommonResources.arrayNameTickers[29] = res.getName();
                         CommonResources.arrayRateTickers[29] = res.getRate();
                         CommonResources.arrayDateTickers[29] = res.getDate();
                         CommonResources.arrrayTimeTickers[29] = res.getTime();
                         break;
 
-                    case "USDSGD":
+
+                    case "USDTHB":
                         CommonResources.arrayNameTickers[30] = res.getName();
                         CommonResources.arrayRateTickers[30] = res.getRate();
                         CommonResources.arrayDateTickers[30] = res.getDate();
                         CommonResources.arrrayTimeTickers[30] = res.getTime();
                         break;
 
-                    case "USDNZD":
+                    case "USDSGD":
                         CommonResources.arrayNameTickers[31] = res.getName();
                         CommonResources.arrayRateTickers[31] = res.getRate();
                         CommonResources.arrayDateTickers[31] = res.getDate();
                         CommonResources.arrrayTimeTickers[31] = res.getTime();
                         break;
-                    case "USDBRL":
+
+                    case "USDNZD":
                         CommonResources.arrayNameTickers[32] = res.getName();
                         CommonResources.arrayRateTickers[32] = res.getRate();
                         CommonResources.arrayDateTickers[32] = res.getDate();
                         CommonResources.arrrayTimeTickers[32] = res.getTime();
                         break;
-                    case "USDMXN":
+                    case "USDBRL":
                         CommonResources.arrayNameTickers[33] = res.getName();
                         CommonResources.arrayRateTickers[33] = res.getRate();
                         CommonResources.arrayDateTickers[33] = res.getDate();
                         CommonResources.arrrayTimeTickers[33] = res.getTime();
+                        break;
+                    case "USDMXN":
+                        CommonResources.arrayNameTickers[34] = res.getName();
+                        CommonResources.arrayRateTickers[34] = res.getRate();
+                        CommonResources.arrayDateTickers[34] = res.getDate();
+                        CommonResources.arrrayTimeTickers[34] = res.getTime();
                         break;
 
 
@@ -315,6 +322,11 @@ public class ParserDateCurrency {
                     case "BTCUSD":
 
                         ConverterData.btc= Float.parseFloat(res.getRate());
+                        break;
+                    //ETHUSD
+                    case "ETHUSD":
+
+                        ConverterData.eth= Float.parseFloat(res.getRate());
                         break;
                     case "USDJPY":
 
@@ -409,7 +421,6 @@ public class ParserDateCurrency {
             }// end for
 
         } catch (JsonParseException e) {
-            //GSON exeptional
             System.out.println("!!!------- CAUGHT Exception JSON   " );
             e.printStackTrace();
         } catch (Exception e){

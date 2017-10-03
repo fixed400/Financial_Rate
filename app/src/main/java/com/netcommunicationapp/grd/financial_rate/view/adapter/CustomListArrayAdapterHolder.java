@@ -1,9 +1,5 @@
 package com.netcommunicationapp.grd.financial_rate.view.adapter;
 
-/**
- * Created by grd on 1/6/17.
- */
-
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -16,16 +12,17 @@ import android.widget.TextView;
 import com.netcommunicationapp.grd.financial_rate.R;
 import com.netcommunicationapp.grd.financial_rate.common.CommonResources;
 
-// add VIEW HOLDER
-public class CustomListArrayAdapter extends ArrayAdapter<String> {
+/**
+ * Created by grd on 9/27/17.
+ */
 
+public class CustomListArrayAdapterHolder  extends ArrayAdapter<String> {
     private Context mContext;
-
 
 
     //Display order flags - порядок отображения флагов
     //Sequence - последовательность
-    Integer[] resImg={
+    Integer[] resImg = {
 
             R.drawable.eur_usd_flags, //1
             R.drawable.gbp_usd_flags, //2
@@ -81,61 +78,60 @@ public class CustomListArrayAdapter extends ArrayAdapter<String> {
 
     };
 
-   // String[] itemName = new String[27];
-   // String[] itemRate = new String[27];
-   // String[] itemDate = new String[27];
-   // String[] itemTime = new String[27];
+    // String[] itemName = new String[27];
+    // String[] itemRate = new String[27];
+    // String[] itemDate = new String[27];
+    // String[] itemTime = new String[27];
 
-   // String[] itemName = new String[34];
-   // String[] itemRate = new String[34];
-   // String[] itemDate = new String[34];
-   // String[] itemTime = new String[34];
-
-
-    String[] itemName = new String[35];
-    String[] itemRate = new String[35];
-    String[] itemDate = new String[35];
-    String[] itemTime = new String[35];
+    String[] itemName = new String[6];
+    String[] itemRate = new String[6];
+    String[] itemDate = new String[6];
+    String[] itemTime = new String[6];
 
 
-    public  int imgId;
+    // String[] itemName = new String[35];
+    // String[] itemRate = new String[35];
+    // String[] itemDate = new String[35];
+    // String[] itemTime = new String[35];
+
+
+    public int imgId;
 
     ImageView imageView;
-    TextView txtTitle,txtTitle2,txtTitle3;
+    TextView txtTitle, txtTitle2, txtTitle3;
 
 
     // make cheking for empty array
     //-------------------------------------------------------------
 
-    public CustomListArrayAdapter(Activity context, int imgid1) {
+    public CustomListArrayAdapterHolder(Activity context, int layout) {
         super(context, R.layout.item_layout);
         // TODO Auto-generated constructor stub
 
         this.mContext=context;
 
         //this.itemName =itemname1;
-       // this.itemRate =itemname2;
-       // this.itemDate =itemname3;
-       // this.itemTime =itemname4;
+        // this.itemRate =itemname2;
+        // this.itemDate =itemname3;
+        // this.itemTime =itemname4;
         this.itemName =CommonResources.arrayNameTickers;
         this.itemRate =CommonResources.arrayRateTickers;
         this.itemDate =CommonResources.arrayDateTickers;
         this.itemTime =CommonResources.arrrayTimeTickers;
-        this.imgId=imgid1;
+        this.imgId=layout;
     }
 
-    //FragmentList -  работает только с этим адаптерем почему-то,разобратся
-    public CustomListArrayAdapter(Activity context, int imgid1, String[] itemname1, String[] itemname2, String[] itemname3, String[] itemname4) {
+    public CustomListArrayAdapterHolder(Activity context, int imgid1, String[] itemname1, String[] itemname2, String[] itemname3, String[] itemname4) {
         super(context, R.layout.item_layout, itemname1);
         // TODO Auto-generated constructor stub
 
-        this.mContext=context;
+        this.mContext = context;
 
-        this.itemName =itemname1;
-        this.itemRate =itemname2;
-        this.itemDate =itemname3;
-        this.itemTime =itemname4;
-        this.imgId=imgid1;
+        this.itemName = itemname1;
+        this.itemRate = itemname2;
+        this.itemDate = itemname3;
+        this.itemTime = itemname4;
+        this.imgId = imgid1;
     }
 
     static class ViewHolder {
@@ -151,7 +147,7 @@ public class CustomListArrayAdapter extends ArrayAdapter<String> {
 
         // НЕ применять ViewHolder  тормозной патерн  !!!
 
-/*
+        // /*
         View viewPreviouslyCreated = convertView; // keep previosly created items
         ViewHolder holderFindViewByIds; //keep findViewByIDs
 
@@ -161,7 +157,7 @@ public class CustomListArrayAdapter extends ArrayAdapter<String> {
             LayoutInflater inflater = (LayoutInflater) mContext
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             viewPreviouslyCreated = inflater.inflate(R.layout.list_fragment_row, null, true);
-             //-----------------------------------------------
+            //-----------------------------------------------
             holderFindViewByIds = new ViewHolder();
             holderFindViewByIds.imageView = (ImageView) viewPreviouslyCreated.findViewById(R.id.imageViewIcon);
             holderFindViewByIds.txtTitle = (TextView) viewPreviouslyCreated.findViewById(R.id.tickerSymbol);
@@ -176,46 +172,43 @@ public class CustomListArrayAdapter extends ArrayAdapter<String> {
         }
 
 
-      //  LayoutInflater inflater1= (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-      //  View rowView=inflater1.inflate(R.layout.list_fragment_row, null, true);
+        //  LayoutInflater inflater1= (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        //  View rowView=inflater1.inflate(R.layout.list_fragment_row, null, true);
         //View rowView=inflater1.inflate(R.layout.item_layout, null, true);
         holderFindViewByIds.imageView.setImageResource(resImg[position]);
         //ImageView imageView = (ImageView) rowView.findViewById(R.id.imageViewIcon);
         //imageView.setImageResource(resImg[position]);
 
         holderFindViewByIds.txtTitle.setText(CommonResources.arrayNameTickers[position]);
-        holderFindViewByIds.txtTitle2.setText("Date "+ itemDate[position]+"\nTime "+ itemTime[position]);
+        holderFindViewByIds.txtTitle2.setText("Date " + itemDate[position] + "\nTime " + itemTime[position]);
         holderFindViewByIds.txtTitle3.setText(itemRate[position]);
 
         return viewPreviouslyCreated;
-        */
+        // */
 
 
+
+        /*
+        //-----------  conventional ,normal,regular --------------------------------------------
         LayoutInflater inflater=(LayoutInflater) mContext
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView=inflater.inflate(R.layout.list_fragment_row, null, true);
 
 
-         imageView = (ImageView) rowView.findViewById(R.id.imageViewIcon);
-         txtTitle = (TextView) rowView.findViewById(R.id.tickerSymbol);
-         txtTitle2 = (TextView) rowView.findViewById(R.id.timeData);
-         txtTitle3 = (TextView) rowView.findViewById(R.id.tickerRate);
+        imageView = (ImageView) rowView.findViewById(R.id.imageViewIcon);
+        txtTitle = (TextView) rowView.findViewById(R.id.tickerSymbol);
+        txtTitle2 = (TextView) rowView.findViewById(R.id.timeData);
+        txtTitle3 = (TextView) rowView.findViewById(R.id.tickerRate);
 
         imageView.setImageResource(resImg[position]);
         txtTitle.setText(CommonResources.arrayNameTickers[position]);
         txtTitle2.setText("Date "+ itemDate[position]+"\nTime "+ itemTime[position]);
         txtTitle3.setText(itemRate[position]);
 
+       return rowView;
         //--------------------------------------------
-
-
-
-        return rowView;
-
-
+        */
 
 
     }
-
-
 }

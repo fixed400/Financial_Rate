@@ -39,6 +39,7 @@
             android:padding="2dp"
             android:layout_marginTop="224dp" />
 
+
         <TextView
             android:text="0.00"
             android:layout_marginTop="495dp"
@@ -48,7 +49,9 @@
             android:textStyle="bold"
             android:textSize="18sp"
             android:background="@drawable/border_rectangle"
-            android:id="@+id/textView5" />
+            android:id="@+id/factor_txt" />
+
+
 
         <TextView
             android:text="0.00"
@@ -61,7 +64,7 @@
             android:textSize="18sp"
             android:maxLength="64"
             android:background="@drawable/border_rectangle"
-            android:id="@+id/textView6"
+            android:id="@+id/multiplier_txt"
             android:layout_width="109dp" />
 
         <!-- android:src="@drawable/convert_complete_128_148" -->
@@ -81,7 +84,7 @@
             android:layout_marginLeft="230dp"
             android:layout_marginTop="155dp"
 
-            android:id="@+id/btn2" />
+            android:id="@+id/btn_multiplier" />
 
         <Button
             android:text="@string/count"
@@ -97,7 +100,7 @@
             android:layout_height="40dp"
             android:layout_marginTop="155dp"
             android:layout_marginLeft="70dp"
-            android:id="@+id/btn1" />
+            android:id="@+id/btn_factor" />
 
 
 

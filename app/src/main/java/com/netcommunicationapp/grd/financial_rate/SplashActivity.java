@@ -1,12 +1,10 @@
-package com.netcommunicationapp.grd.financial_rate.view;
+package com.netcommunicationapp.grd.financial_rate;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-
-import com.netcommunicationapp.grd.financial_rate.R;
 
 
 public class SplashActivity extends Activity {
@@ -31,7 +29,7 @@ public class SplashActivity extends Activity {
             @Override
             public void run() {
 
-                Intent i = new Intent(SplashActivity.this, PreViewerActivity.class);
+                Intent i = new Intent(SplashActivity.this, PreLoaderActivity.class);
                 startActivity(i);
 
 

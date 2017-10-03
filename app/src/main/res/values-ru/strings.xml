@@ -1,3 +1,4 @@
+
 <resources>
     <string name="app_name">Обменный Курс</string>
 
@@ -5,10 +6,15 @@
     <string name="action_settings">Настройки</string>
 
 
-    <string-array name="views_array">
+    <string-array name="nav_list_array">
         <item>Валютные пары</item>
         <item>Конвертор</item>
+
         <item>О программе</item>
+
+        <item>Сырьевые товары</item>
+        <item>Shares</item>
+
     </string-array>
     <string name="menu">Меню</string>
 
@@ -20,7 +26,7 @@
         <item>Вкладка 2</item>
         <item>Вкладка 3</item>
     </string-array>
- <!-- ************************************************************     -->
+    <!-- ************************************************************     -->
     <string name="drawer_open">Открыть navigation drawer</string>
     <string name="drawer_close">Закрыть navigation drawer</string>
 
@@ -36,13 +42,13 @@ Oбновите данные"</string>
 
     <string name="warming">Внимание !</string>
 
-       <string name="danger_info">
+    <string name="danger_info">
         Цена на валютном рынке может резко менятся в течении дня в зависимости от новостного фона!
         Котировки валют в данном приложении являются приблизительными и не отображают биржевую цену в реальном времени!
            Результат конвертора является приблизительный! Большие числа округляются!
     </string>
 
-     <string name="danger_price">
+    <string name="danger_price">
         Котировки валют  являются приблизительными!
     </string>
 
@@ -79,18 +85,16 @@ Oбновите данные"</string>
 
     <string name="sory">Sorry Bitcoin quotes is temporarily not available</string>
 
+    <string name="ref_info">Open link in new window?</string>
+
 
     <!-- ***********************PREFERENCE******************** -->
-    <string name="checkbox1_title">Темный фон меню</string>
-    <string name="checkbox1_summary">Summary of CheckBox 1</string>
-    <string name="checkbox2_title">Темный фон меню</string>
-    <string name="checkbox2_summary">Set on/off</string>
-    <string name="checkbox3_title">Темный фон меню</string>
-    <string name="checkbox3_summary">Summary of CheckBox 3</string>
-    <string name="edittext1_title">EditText 1</string>
-    <string name="edittext1_summary">Summary of EditText 1</string>
+
+    <string name="checkbox_summary">вкл/выкл</string>
+    <string name="animation_list">Анимация cписка</string>
     <string name="list1_title">Выбор анимации</string>
-    <string name="list1_summary">Выбрать эффект из списка</string>
+    <string name="list_summary">Выбрать эффект из списка</string>
+
     <string-array name="entries">
         <item>increase</item>
         <item>protrusion</item>

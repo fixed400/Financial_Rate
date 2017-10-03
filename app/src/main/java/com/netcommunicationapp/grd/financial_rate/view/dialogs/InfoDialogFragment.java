@@ -20,7 +20,7 @@ import com.netcommunicationapp.grd.financial_rate.R;
  */
 
 public class InfoDialogFragment extends DialogFragment {
-    final String LOG_TAG = "myLogs";
+    final String LOG_TAG = "InfoDialogFrag";
 
 
     // @NonNull

@@ -23,23 +23,23 @@ import com.netcommunicationapp.grd.financial_rate.R;
  * Created by grd on 1/26/17.
  */
 
-public class PairListCurrencyDialogFragment2 extends DialogFragment implements
+public class PairListCurrencyDialogRatio extends DialogFragment implements
         AdapterView.OnItemClickListener {
 
 
         // FOR send data to activity
-        public interface onEventListenerPair2 {
+        public interface onEventListenerRatio {
             public void Value2Event(String s);
         }
 
-        onEventListenerPair2 pair2EventListener;
-
-       // String[] listitems = { "USD", "EUR", "GBP", "CAD","JPY", "CHF",
-       //         "CNH", "AUD","PLN", "RUB", "UAH", "BTC","BYN","KZT","TRY","INR","PKR","EGP"};
+        onEventListenerRatio ratioEventListener;
 
 
     String[] listitems = { "USD", "EUR", "GBP", "CAD","JPY", "CHF",
-            "CNH", "AUD","PLN", "RUB", "UAH", "BTC","BYN","KZT","GEL","TRY","ILS","INR","PKR","EGP",
+            "CNH", "AUD","PLN", "RUB", "UAH",
+            "BTC",
+            "ETH",
+            "BYN","KZT","GEL","TRY","ILS","INR","PKR","EGP",
 
             "BRL",
             "NZD",
@@ -47,13 +47,7 @@ public class PairListCurrencyDialogFragment2 extends DialogFragment implements
             "MXN",
             "THB"
 
-            /*
-            "GEL",
-            "ILS",
-            "KRW",
-            "ARS",
-            "CLP"
-            */
+
     };
 
         ListView mylist;
@@ -63,9 +57,9 @@ public class PairListCurrencyDialogFragment2 extends DialogFragment implements
         public void onAttach(Activity activity) {
             super.onAttach(activity);
             try {
-                pair2EventListener = (onEventListenerPair2) activity;
+                ratioEventListener = (onEventListenerRatio) activity;
             } catch (ClassCastException e) {
-                throw new ClassCastException(activity.toString() + " must implement onEventListenerPair2");
+                throw new ClassCastException(activity.toString() + " must implement onEventListenerRatio");
             }
 
         }
@@ -78,8 +72,6 @@ public class PairListCurrencyDialogFragment2 extends DialogFragment implements
 
             View view = inflater.inflate(R.layout.list_dialog_fragment, null, false);
             mylist = (ListView) view.findViewById(R.id.list);
-
-
 
             getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
             getDialog().setCanceledOnTouchOutside(true);
@@ -95,9 +87,7 @@ public class PairListCurrencyDialogFragment2 extends DialogFragment implements
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
                     android.R.layout.simple_list_item_1, listitems);
-
             mylist.setAdapter(adapter);
-
             mylist.setOnItemClickListener(this);
 
         }
@@ -106,15 +96,13 @@ public class PairListCurrencyDialogFragment2 extends DialogFragment implements
         public void onItemClick(AdapterView<?> parent, View view, int position,
                                 long id) {
 
-            pair2EventListener.Value2Event(listitems[position]);
+            ratioEventListener.Value2Event(listitems[position]);
 
-            Button btnv2 = (Button) getActivity().findViewById(R.id.btn2);
+            Button btnv2 = (Button) getActivity().findViewById(R.id.btn_multiplier);
             btnv2.setText(listitems[position]);
 
-
-            CommonResources.ratePair2 = listitems[position];
-
-            ConverterFragment.valueTickerTwo(CommonResources.ratePair2);
+            CommonResources.currencyNameRatio = listitems[position];
+            ConverterFragment.valueTickerRatio(CommonResources.currencyNameRatio);
 
             dismiss();
 
@@ -127,13 +115,6 @@ public class PairListCurrencyDialogFragment2 extends DialogFragment implements
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setStyle(DialogFragment.STYLE_NO_FRAME, R.style.colorPickerStyle);
-        // this setStyle is VERY important.
-        // STYLE_NO_FRAME means that I will provide my own layout and style for the whole dialog
-        // so for example the size of the default dialog will not get in my way
-        // the style extends the default one. see bellow.
-
-
     }
 
     public void onResume() {
