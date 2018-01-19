@@ -29,6 +29,7 @@ import com.netcommunicationapp.grd.financial_rate.view.сurrency_сonverter.Pair
 import com.netcommunicationapp.grd.financial_rate.view.сurrency_сonverter.PairListCurrencyDialogRatio;
 
 
+// fixed400 -master & zeno -partner
 public class MainNavigationDrawerActivity extends AppCompatActivity implements PairListCurrencyDialogFactor.onEventListenerFactor,PairListCurrencyDialogRatio.onEventListenerRatio {
 
     private final String LOG_TAG = "LOG_Activity(Nav.Draw)";
