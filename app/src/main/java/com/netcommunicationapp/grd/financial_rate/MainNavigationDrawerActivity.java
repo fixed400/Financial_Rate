@@ -129,11 +129,14 @@ public class MainNavigationDrawerActivity extends AppCompatActivity implements P
                 fragment = new CommoditiesFragment();
                 restraint =false;
                 break;
+            /*
             case 4:
                 fragment = new SharesQuoteFragment();
                 restraint =false;
-
                 break;
+            */
+
+
             default:
                 break;
         }
